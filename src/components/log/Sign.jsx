@@ -1,10 +1,14 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+
+// ? useFormik    
+//? Yup 
 const initialValues = {
     name:"",
     email:"",
-    password:""
+    password:"",
+    confirmPassword:""
 }
 
 const onSubmit = (values) => {
@@ -58,6 +62,7 @@ export default function Sign() {
                 id='name'
                 type='text'
                 name='name'
+                //! getField
                 // onChange={formik.handleChange}
                 // onBlur={formik.handleBlur}
                 // value={formik.values.name}
@@ -119,19 +124,19 @@ export default function Sign() {
         <div className='flex flex-col mt-4 text-left'>
             <form onSubmit={formik.handleSubmit}>
                <input 
-                id='password'
+                id='confirmPassword'
                 typeof='password'
-                name='password'
+                name='confirmPassword'
                 // onChange={formik.handleChange}
                 // onBlur={formik.handleBlur}
                 // value={formik.values.password}
-                {...formik.getFieldProps('password')}
+                {...formik.getFieldProps('confirmPassword')}
                 className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                placeholder="Enter your password"
+                placeholder="Confirm your password"
                 type={"password"}
             />
             </form>
-            {formik.touched.password && formik.errors.password ? <div className='text-red-500 '>{formik.errors.password}</div>: null}
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? <div className='text-red-500 '>{formik.errors.confirmPassword}</div>: null}
 
         </div>
         <div className='mt-8 flex flex-col gap-y-4'>
