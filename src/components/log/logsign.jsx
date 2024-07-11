@@ -3,17 +3,21 @@ import './Logsign.css'
 import { useFormik } from 'formik'
 
 const initialValues = {
-    name:"",
     email:"",
     password:""
 }
 
-const onSubmit = values => {
-    console.log(values)
+const onSubmit = (values) => {
+    console.log("form data",values)
 }
 
-const validate = ()=>{
+
+
+
+const validate = (values)=>{
+    
     let errors = {}
+
 
     if(!values.email){
         errors.email = 'Required'
@@ -24,9 +28,11 @@ const validate = ()=>{
     if(!values.password){
         errors.password = 'Required'
     }
-     
-  return errors
+  
+    return errors
  }
+
+
 
 export default function Logsign() {
     const formik = useFormik({
@@ -34,9 +40,9 @@ export default function Logsign() {
         onSubmit,
         validate
     })
-    console.log(formik.values);
-  return (
 
+console.log(formik.errors)
+  return (
     <div className='log w-10/10 max-w-[500px] px-10 py-20 rounded-3xl  bg-white border-2 border-gray-100'>
     <div className='mt-8'>
         
@@ -74,7 +80,7 @@ export default function Logsign() {
         <div className='mt-8 flex justify-between items-center'>
             <div>
                 <input  type="checkbox" id='remember'/>
-                <label className='ml-2 font-medium text-base' for="remember">Remember for 30 days</label>
+                <label className='ml-2 font-medium text-base' htmlFor="remember">Remember for 30 days</label>
             </div>
             <button className='font-medium text-base text-violet-500'>Forgot password</button>
         </div>
