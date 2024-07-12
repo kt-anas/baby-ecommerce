@@ -4,19 +4,27 @@ import Logsign from './components/log/Logsign.jsx'
  import { BrowserRouter as Router , Routes,Route } from 'react-router-dom'
 import './App.css'
 import Sign from './components/log/Sign'
+import Shop from './components/shop/Shop.jsx'
+ import { Products as ProductsProvider} from './components/shop/Products.jsx'
 
 function App() {
    
   return (
-    <div className='app'>
+
+ 
+    <ProductsProvider>
+            <div className='app'>
      <Router>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        {/* <Route path="/" element={<Logsign />} /> */}
+        <Route path='/shop' element={<Shop/>}/>
+        <Route path="/logsign" element={<Logsign />} />
         <Route path="/register" element={<Sign />} />
       </Routes>
     </Router>
      </div>
+ 
+    </ProductsProvider>
      
   )
 }

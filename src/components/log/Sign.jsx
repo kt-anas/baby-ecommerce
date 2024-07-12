@@ -1,7 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import * as Yup from 'yup'
+// import * as Yup from 'yup'
 import axios from 'axios'
+
 // ? useFormik    
 //? Yup 
 const initialValues = {
@@ -21,10 +22,10 @@ const onSubmit = (values) => {
       });
   };
 
-const validationSchema = Yup.object({
-    email:Yup.string().email("Invalid email format").required("Required !"),
-    password:Yup.string().required("Required !")
-})
+// const validationSchema = Yup.object({
+//     email:Yup.string().email("Invalid email format").required("Required !"),
+//     password:Yup.string().required("Required !")
+// })
 
 
 const validate = (values)=>{
@@ -49,8 +50,8 @@ export default function Sign() {
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate,
-        validationSchema
+        validate
+        // validationSchema
     })
  
  
