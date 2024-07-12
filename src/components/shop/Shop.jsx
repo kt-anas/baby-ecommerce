@@ -1,14 +1,18 @@
 import React from 'react'
 import Nav from '../home/Nav'
-import ProductsContext from './Products'
-import { useContext } from 'react'
+import Products from './Products'
+// import productsContext from './Products'
+// import { useContext } from 'react'
 export default function Shop() {
-  const products = useContext(ProductsContext)
+//   const products = useContext(productsContext)
+   
+  
   return (
     
     <div>
-        <Nav/>
-         
+    <Nav/>
+          
+      <Products/>   
     </div>
   )
 }

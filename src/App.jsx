@@ -5,15 +5,15 @@ import Logsign from './components/log/Logsign.jsx'
 import './App.css'
 import Sign from './components/log/Sign'
 import Shop from './components/shop/Shop.jsx'
- import { Products as ProductsProvider} from './components/shop/Products.jsx'
+// import ProductsProvider from './components/shop/Products.jsx'
+
+
 
 function App() {
    
   return (
-
  
-    <ProductsProvider>
-            <div className='app'>
+    <div className='app'>
      <Router>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -24,7 +24,11 @@ function App() {
     </Router>
      </div>
  
-    </ProductsProvider>
+
+    
+
+ 
+    
      
   )
 }
