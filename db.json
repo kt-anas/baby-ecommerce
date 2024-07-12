@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "a5ed",
+      "name": "Anas",
+      "email": "ktmanas2020@gmail.com",
+      "password": "2020$$anas",
+      "confirmPassword": "2020$$anas"
+    },
+    {
+      "id": "09f7",
+      "name": "Anas",
+      "email": "ktmanas1825@gmail.com",
+      "password": "1825$$anas",
+      "confirmPassword": "1825$$anas"
+    },
+    {
+      "id": "0c5f",
+      "name": "Anas",
+      "email": "ktmanas1825@gmail.com",
+      "password": "1825$$anas",
+      "confirmPassword": "1825$$anas"
+    },
+    {
+      "id": "ea79",
+      "name": "muheenudheen",
+      "email": "muheenudeen313@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-
+import axios from 'axios'
 // ? useFormik    
 //? Yup 
 const initialValues = {
@@ -12,8 +12,14 @@ const initialValues = {
 }
 
 const onSubmit = (values) => {
-    console.log("form data",values)
-}
+    axios.post('http://localhost:3000/users', values)
+      .then(response => {
+        console.log("submitted successfully", response.data);
+      })
+      .catch(error => {
+        console.error("error", error);
+      });
+  };
 
 const validationSchema = Yup.object({
     email:Yup.string().email("Invalid email format").required("Required !"),
@@ -22,7 +28,6 @@ const validationSchema = Yup.object({
 
 
 const validate = (values)=>{
-    
     let errors = {}
     if(!values.name){
         errors.name = 'Required'
@@ -32,11 +37,9 @@ const validate = (values)=>{
     }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
         errors.email = 'Invalid email format'
     }
-
     if(!values.password){
         errors.password = 'Required'
     }
-  
     return errors
  }
 
@@ -141,9 +144,7 @@ export default function Sign() {
         </div>
         <div className='mt-8 flex flex-col gap-y-4'>
             <button className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-4 bg-violet-500 rounded-xl text-white font-bold text-lg'>Sign Up</button> 
-        </div>
-        
-        
+        </div> 
     </div>
 </div>
   )

@@ -88,10 +88,10 @@ export default function Logsign() {
 
         </div>
         <div className='mt-8 flex justify-between items-center'>
-            <div>
+            {/* <div>
                 <input  type="checkbox" id='remember'/>
                 <label className='ml-2 font-medium text-base' htmlFor="remember">Remember for 30 days</label>
-            </div>
+            </div> */}
             <button className='font-medium text-base text-violet-500'>Forgot password</button>
         </div>
         <div className='mt-8 flex flex-col gap-y-4'>
