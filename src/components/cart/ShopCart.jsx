@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-// import { CartContext } from '../context/CartProvider';
+import { CartContext } from '../context/CartProvider';
  import Nav from '../home/Nav'
 const ShopCart = () => {
-//   const { cart,addToCart, removeFromCart, clearCart } = useContext(CartContext);
+  const { cart,addToCart, removeFromCart, clearCart } = useContext(CartContext);
 
   return (
 
@@ -16,7 +16,8 @@ const ShopCart = () => {
      <div>
         <ul>
             <li className='bg-white shadow-lg rounded-lg p-4 mb-4'>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-around items-center">
+                    <img src="" alt="shirt" />
                     <div>
                         <h2 className="text-xl font-bold">shirt</h2>
                         <p>Price:</p>

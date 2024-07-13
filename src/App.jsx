@@ -10,14 +10,14 @@ import Aboutus from './components/content/Aboutus.jsx'
 import Testimonial from './components/content/Testimonial.jsx'
 import Contactus from './components/content/Contactus.jsx'
 // import ProductsProvider from './components/shop/Products.jsx'
-
+import CartProvider from './components/context/CartProvider.jsx'
 
 
 function App() {
    
   return (
- 
-    <div className='app'>
+   <CartProvider>
+      <div className='app'>
      <Router>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -31,6 +31,8 @@ function App() {
       </Routes>
     </Router>
      </div>
+   </CartProvider>
+  
  
 
     

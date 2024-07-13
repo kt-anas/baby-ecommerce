@@ -1,11 +1,18 @@
 // import React, { createContext } from 'react'
 // import Shop from './Shop'
-import { useEffect,useState} from 'react'
+import { useContext, useEffect,useState} from 'react'
  import axios from 'axios';
 //  export const productsContext = createContext();
+import { CartContext } from '../context/CartProvider';
+ 
+
+
 
 function ProductsProvider() {
+
     const [products,setProducts] = useState([]);
+
+    const {addCart} =useContext(CartContext)
 
  useEffect(()=>{
     const fetchProducts = async()=>{
@@ -19,6 +26,8 @@ function ProductsProvider() {
     fetchProducts();
  },[])
  
+
+
     return(
         <div className="container mx-auto p-4 m-10">
         <h1 className="text-3xl font-bold text-center mb-6">Products List</h1>
@@ -35,7 +44,7 @@ function ProductsProvider() {
               <div className="flex px-6 pt-4 pb-2">
                 <span className="text-xl font-bold text-gray-900">{product.price}</span>
                 
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right">ADD TO CART</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right" onClick={()=>addCart(product)}>ADD TO CART</button>
                 
               </div>
             </div>

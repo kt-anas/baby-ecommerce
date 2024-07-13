@@ -1,17 +1,19 @@
 import React from 'react'
 import { createContext,useState } from 'react'
+//--------------------------------------//
 export const CartContext = createContext();
 
 export default function CartProvider({children}) {
  const [cart,setCart] = useState([]);
  const [cartCout,setCartCount] =useState(0);
 
- const addCart = (item)=>{
-    
-      setCart(prevcart => [...prevcart,item])
+ const addCart = (product)=>{
+    console.log(product)
+    setCart(product)
+    //   setCart(prevcart => [...prevcart,item])
       
   }
-
+ 
 //  const addToCart = (product)=>{
 //     //Set Cart
 //     setCart((prevCart) => {
@@ -43,7 +45,7 @@ const clearCart = () => {
 
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addCart, removeFromCart, clearCart }}>
     {children}
   </CartContext.Provider>
   )
