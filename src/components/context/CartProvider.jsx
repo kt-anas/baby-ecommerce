@@ -7,28 +7,23 @@ export default function CartProvider({children}) {
  const [cart,setCart] = useState([]);
  const [cartCout,setCartCount] =useState(0);
 
- const addCart = (product)=>{
-    console.log(product)
-    setCart(product)
-    //   setCart(prevcart => [...prevcart,item])
-      
-  }
+  
  
-//  const addToCart = (product)=>{
-//     //Set Cart
-//     setCart((prevCart) => {
-//         const existingProduct = prevCart.find((item) => item.id === product.id);
-// ''
-//       console.log(existingProduct);
-//         if (existingProduct) {
-//           return prevCart.map((item) =>
-//             item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-//           );
-//         } else {
-//           return [...prevCart, { ...product, quantity: 1 }];
-//         }
-//       });
-//  };
+ const addCart = (product)=>{
+    //Set Cart
+    setCart((prevCart) => {
+        const existingProduct = prevCart.find((item) => item.id === product.id);
+
+      console.log(existingProduct);
+        if (existingProduct) {
+          return prevCart.map((item) =>
+            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          );
+        } else {
+          return [...prevCart, { ...product, quantity: 1 }];
+        }
+      });
+ };
 
 
 //remove From cart
