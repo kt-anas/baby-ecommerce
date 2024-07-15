@@ -1,4 +1,15 @@
-/* Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+.main{
+    background-color: #FFFFFF;
+}
+h1,p{
+    font-family: 'Sriracha',handwriting;
+    font-weight: 400;
+    font-style: normal;
+    color: #3E1F55;
+}
+/* Home.css
 .home-container {
     padding: 2rem;
     text-align: center;
@@ -38,4 +49,4 @@
   
   .shop-now-btn:hover {
     background-color: #e65c50;
-  }
+  } */

@@ -1,1 +1,8 @@
- 
+
+
+ .font-medium:hover{
+   background-color: #FF6F61;
+ }
+ input{
+    background-color: #FF6F61;
+ }

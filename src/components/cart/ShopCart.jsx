@@ -1,47 +1,48 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartProvider';
- import Nav from '../home/Nav'
+import Nav from '../home/Nav';
+
 const ShopCart = () => {
-  const { cart,addToCart, removeFromCart, clearCart } = useContext(CartContext);
+  const { cart, removeFromCart, handleDecrement, handleIncrement, clearCart, totalPrice } = useContext(CartContext);
 
- 
   return (
-
     <>
-     <Nav/>
-     
-    <div className="container max-auto p-4 bg-slate-600">
-    <h1 className='text-3xl font-bold text-ceter mb-6'>Shoping Cart</h1>
-      {cart.length ===0 ?(
-         <p className='text-center font-bold'>Cart is empty</p>
-      ):(
-     
-     <div>
-        <ul>
-            {cart.map(item =>(
-                  <li key={item.id} className='bg-white shadow-lg rounded-lg p-4 mb-4'>
-                  <div className="flex justify-around items-center">
-                      <img src="" alt="shirt" />
-                      <div>
-                          <h2 className="text-xl font-bold">{item.name}</h2>
-                          <p>Price:{item.price}</p>
-                          <p>Quantity:</p>
-                      </div>
-                      <button onClick={()=>removeFromCart(item.id)} className='bg-red-600 hover:bg-red-800 text-white font-bold px-4 py-2 rounded'>
-                          Removie
-                      </button>
+      <Nav />
+      <div className="p-4">
+        <h2 className="text-2xl font-bold mb-4">Cart</h2>
+        {cart.length === 0 ? (
+          <div className='text-2xl'>YOUR CART IS EMPTY.</div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 gap-4">
+              {cart.map((item, index) => (
+                <div key={item.id} className="p-4 bg-white rounded-lg shadow-lg flex items-center">
+                  <img src={item.image} className="w-24 h-24 object-cover rounded-lg mr-4" alt={item.description} />
+                  <div className="flex-grow">
+                    <p className="text-lg font-semibold">{item.description}</p>
+                    <p className="text-gray-700">${item.price} x {item.quantity}</p>
+                    <div className="flex items-center mt-2">
+                      <button onClick={() => handleDecrement(index)} className="text-sm bg-gray-300 px-2 py-1 rounded-md mr-2">-</button>
+                      <span className="text-lg">{item.quantity}</span>
+                      <button onClick={() => handleIncrement(index)} className="text-sm bg-gray-300 px-2 py-1 rounded-md ml-2">+</button>
+                      <button onClick={() => removeFromCart(item.id)} className="text-sm bg-red-500 text-white px-2 py-1 rounded-md ml-2">Delete</button>
+                    </div>
                   </div>
-              </li>
-            ))}
-        </ul>
-        <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4'>Clear Cart
-
-        </button>
-     </div>
-      )}
-    </div>
+                  <p className="text-lg font-bold">${item.price * item.quantity}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4">
+              <p className="text-lg font-semibold">Total: ${totalPrice}</p>
+            </div>
+            <div className="mt-4 flex">
+              <button className="bg-yellow-900 p-3 text-white mr-4">Payment</button>
+              <button onClick={clearCart} className="bg-red-500 p-3 text-white">Clear Cart</button>
+            </div>
+          </>
+        )}
+      </div>
     </>
-   
   );
 };
 

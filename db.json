@@ -1,50 +1,101 @@
 {
   "users": [
     {
-      "id": "a5ed",
-      "name": "Anas",
-      "email": "ktmanas2020@gmail.com",
-      "password": "2020$$anas",
-      "confirmPassword": "2020$$anas"
-    },
-    {
-      "id": "09f7",
-      "name": "Anas",
-      "email": "ktmanas1825@gmail.com",
-      "password": "1825$$anas",
-      "confirmPassword": "1825$$anas"
-    },
-    {
-      "id": "0c5f",
-      "name": "Anas",
-      "email": "ktmanas1825@gmail.com",
-      "password": "1825$$anas",
-      "confirmPassword": "1825$$anas"
-    },
-    {
       "id": "ea79",
       "name": "muheenudheen",
       "email": "muheenudeen313@gmail.com",
       "password": "123456",
       "confirmPassword": "123456"
+    },
+    {
+      "id": "7cf3",
+      "name": "anas",
+      "email": "ktmanas2020@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "fff9",
+      "name": "anas",
+      "email": "ktmnas2020@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "349e",
+      "name": "anas",
+      "email": "anas@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678"
+    },
+    {
+      "id": "9212",
+      "name": "anas",
+      "email": "ktanas@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678"
+    },
+    {
+      "id": "3a68",
+      "name": "anas",
+      "email": "kt@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678"
     }
   ],
-  "products":[
-    { "id": 1,
-    "name": "Baby Shirt",
-     "description": "Comfortable cotton shirt for babies.", 
-     "price": "$10",
-     "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg"
-   },
-   { "id": 2,
-   "name": "Baby Shirt",
-    "description": "Comfortable cotton shirt for babies.", 
-    "price": "$10",
-    "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg"
-  }
-    
+  "products": [
+    {
+      "id": "1",
+      "name": "toys",
+      "description": "Extra Soft Touch Lamb Doll",
+      "price": "8.50",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Clothes",
+      "description": "Twin Cute Bunny Set Combo",
+      "price": "40.25",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-11.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Clothes",
+        "description": "Colorful Birdies on Orange Bandana",
+        "price": "4.75",
+        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-10.jpg"
+      },
+      {
+        "id": "4",
+        "name": "nutrition",
+        "description": "Nutrikids Food Nutrition DHA+ Orange",
+        "price": "6.50",
+        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
+      },
+      {
+        "id": "4",
+        "name": "nutrition",
+        "description": "Nutrikids Food Nutrition DHA+ Orange",
+        "price": "6.50",
+        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
+      },{
+        "id": "4",
+        "name": "nutrition",
+        "description": "Nutrikids Food Nutrition DHA+ Orange",
+        "price": "6.50",
+        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
+      },{
+        "id": "4",
+        "name": "nutrition",
+        "description": "Nutrikids Food Nutrition DHA+ Orange",
+        "price": "6.50",
+        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
+      },{
+        "id": "4",
+        "name": "nutrition",
+        "description": "Nutrikids Food Nutrition DHA+ Orange",
+        "price": "6.50",
+        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
+      }
   ]
-
-
 }
- 

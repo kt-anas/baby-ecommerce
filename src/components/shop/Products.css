@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+.text-6xl{
+    font-family: 'Sriracha',handwriting;
+  font-weight: 400;
+  font-style: normal;
+  color: #3E1F55;
+}
+.container{
+    background-color: #f2f2f2;
+     
+}
+button.py-2{
+    background-color: #FF6F61;
+}
+ p.text-base{
+    font-family: 'Sriracha',handwriting;
+    font-weight: 400;
+    font-style: normal;
+    color: #3E1F55;
+ }
