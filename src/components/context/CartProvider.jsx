@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-
+import axios from 'axios';
 // Create Cart Context
 export const CartContext = createContext();
 
@@ -64,10 +64,31 @@ export default function CartProvider({ children }) {
     setCart([]);
   };
 
+//------------search----------//
+const [searchTerm, setSearchTerm] = useState('');
+const[products,setProducts]=useState([])
 
+
+
+const handleSearchChange = (event) => {
+  setSearchTerm(event.target.value);
+};
+
+useEffect(()=>{
+    axios.get(`http://localhost:3000/products`)
+    .then(res=>setProducts(res.data))
+      
+    },[])
+     
+    
+      const filteredProduct= products.filter(item =>
+       item.name ?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
   
+
+
   return (
-    <CartContext.Provider value={{ cart, addCart, removeFromCart, clearCart, handleDecrement, handleIncrement, cartCount, totalPrice }}>
+    <CartContext.Provider value={{ cart, addCart, removeFromCart, clearCart, handleDecrement, handleIncrement, cartCount, totalPrice,handleSearchChange,filteredProduct }}>
       {children}
     </CartContext.Provider>
   );

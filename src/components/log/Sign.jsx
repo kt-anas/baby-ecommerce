@@ -119,7 +119,7 @@ const Sign = () => {
           </div>
 
           <div className="mt-8 flex flex-col gap-y-4">
-            <button type="submit" className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-violet-500 rounded-xl text-white font-bold text-lg">
+            <button type="submit" className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-orange-500 rounded-xl text-white font-bold text-lg">
               Sign Up
             </button>
           </div>

@@ -41,6 +41,20 @@
       "email": "kt@gmail.com",
       "password": "12345678",
       "confirmPassword": "12345678"
+    },
+    {
+      "id": "ebce",
+      "name": "ty",
+      "email": "mu@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678"
+    },
+    {
+      "id": "203e",
+      "name": "anas",
+      "email": "anaskt@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678"
     }
   ],
   "products": [
@@ -59,43 +73,53 @@
       "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-11.jpg"
     },
     {
-        "id": "3",
-        "name": "Clothes",
-        "description": "Colorful Birdies on Orange Bandana",
-        "price": "4.75",
-        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-10.jpg"
-      },
-      {
-        "id": "4",
-        "name": "nutrition",
-        "description": "Nutrikids Food Nutrition DHA+ Orange",
-        "price": "6.50",
-        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
-      },
-      {
-        "id": "4",
-        "name": "nutrition",
-        "description": "Nutrikids Food Nutrition DHA+ Orange",
-        "price": "6.50",
-        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
-      },{
-        "id": "4",
-        "name": "nutrition",
-        "description": "Nutrikids Food Nutrition DHA+ Orange",
-        "price": "6.50",
-        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
-      },{
-        "id": "4",
-        "name": "nutrition",
-        "description": "Nutrikids Food Nutrition DHA+ Orange",
-        "price": "6.50",
-        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
-      },{
-        "id": "4",
-        "name": "nutrition",
-        "description": "Nutrikids Food Nutrition DHA+ Orange",
-        "price": "6.50",
-        "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
-      }
+      "id": "3",
+      "name": "Clothes",
+      "description": "Colorful Birdies on Orange Bandana",
+      "price": "4.75",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-10.jpg"
+    },
+    {
+      "id": "4",
+      "name": "nutrition",
+      "description": "Nutrikids Food Nutrition DHA+ Orange",
+      "price": "6.50",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Clothes",
+      "description": "Sunny Outdoor Picnic Set Yellow",
+      "price": "35.50",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg"
+    },
+    {
+      "id": "6",
+      "name": "toys",
+      "description": "Teddy Bear Ready To Flight Doll",
+      "price": "10.00",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-7.jpg"
+    },
+    {
+      "id": "7",
+      "name": "nutrition",
+      "description": "VitCom Nutrition Fruits Flavor",
+      "price": "9.50",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-6.jpg"
+    },
+    {
+      "id": "8",
+      "name": "nursery",
+      "description": "Frosted White Plastic Bottle 400ml",
+      "price": "6.25",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-5.jpg"
+    },
+    {
+      "id": "9",
+      "name": "toys",
+      "description": "ZooMate 3 Animal Set Toys",
+      "price": "12.50",
+      "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-4.jpg"
+    }
   ]
 }

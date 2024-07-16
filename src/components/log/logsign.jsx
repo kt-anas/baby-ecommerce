@@ -90,19 +90,19 @@ const Logsign = () => {
             {formik.touched.password && formik.errors.password ? <div className="text-red-500">{formik.errors.password}</div> : null}
           </div>
           <div className="mt-8 flex justify-between items-center">
-            <button className="font-medium text-base text-violet-500">Forgot password</button>
+            <button className="font-medium text-base text-orange-500">Forgot password</button>
           </div>
           <div className="mt-8 flex flex-col gap-y-4">
-            <button type="submit" className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-violet-500 rounded-xl text-white font-bold text-lg">
+            <button type="submit" className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-orange-500 rounded-xl text-white font-bold text-lg">
               Sign in
             </button>
           </div>
           <div className="mt-8 flex justify-center items-center">
-            <p className="font-medium text-base">Don't have an account?</p>
+            <p className="font-semibold text-base">Don't have an account?</p>
             <button
               type="button"
               onClick={() => navigate('/register')}
-              className="ml-2 font-medium text-base text-violet-500">
+              className="ml-2 font-semibold text-base text-orange-500">
               Sign up
             </button>
           </div>

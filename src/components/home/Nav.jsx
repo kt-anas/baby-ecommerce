@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+
 import './Nav.css';
 import Logo from '../../assets/img/baby-store-logo.svg';
+import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+ 
+import { CartContext } from '../context/CartProvider';
 
 export default function Nav() {
+
+    const navigate = useNavigate();
+
   const [isOpen, setOpen] = useState(false);
+const {handleSearchChange} =useContext(CartContext);
+
   const toggleMenu = () => {
     setOpen(!isOpen);
   };
+
 
   return (
     <nav className="bg-transparent">
@@ -22,7 +32,7 @@ export default function Nav() {
                 <NavLink to="/" className="text-gray-500  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</NavLink>
                 <NavLink to="/shop" className="text-gray-500  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Shop</NavLink>
                 <NavLink to="/about-us" className="text-gray-500  hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</NavLink>
-                <NavLink to="/testimonials" className="text-gray-500  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Testimonial</NavLink>
+                {/* <NavLink to="/testimonials" className="text-gray-500  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Testimonial</NavLink> */}
                 <NavLink to="/contact-us" className="text-gray-500  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact Us</NavLink>
               </div>
             </div>
@@ -31,7 +41,9 @@ export default function Nav() {
             <input
               type="text"
               placeholder="Search..."
-              className="bg-gray-200 text-gray-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-white"
+              onFocus={()=>navigate('/shop')}
+              onChange={handleSearchChange}
+              className="bg-gray-200 text-gray-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2    focus:ring-orange-300"
             />
           </div>
           <div className="flex items-center space-x-4">
@@ -68,12 +80,13 @@ export default function Nav() {
           <NavLink to="/" className="text-gray-500  hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</NavLink>
           <NavLink to="/shop" className="text-gray-500  hover:text-white block px-3 py-2 rounded-md text-base font-medium">Shop</NavLink>
           <NavLink to="/about-us" className="text-gray-500  hover:text-white block px-3 py-2 rounded-md text-base font-medium">About Us</NavLink>
-          <NavLink to="/testimonials" className="text-gray-500  hover:text-white block px-3 py-2 rounded-md text-base font-medium">Testimonial</NavLink>
+          {/* <NavLink to="/testimonials" className="text-gray-500  hover:text-white block px-3 py-2 rounded-md text-base font-medium">Testimonial</NavLink> */}
           <NavLink to="/contact-us" className="text-gray-500  hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact Us</NavLink>
           <div className="pt-2 pb-3 border-t border-gray-700">
             <input
               type="text"
               placeholder="Search..."
+              onFocus={()=>navigate('/shop')}
               className="text-white  block w-full rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-white"
             />
           </div>
