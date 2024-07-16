@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../context/CartProvider';
-import Nav from '../home/Nav';
+import { CartContext } from '../../context/CartProvider';
+import Nav from '../nav/Nav';
 
 const ShopCart = () => {
   const { cart, removeFromCart, handleDecrement, handleIncrement, clearCart, totalPrice } = useContext(CartContext);

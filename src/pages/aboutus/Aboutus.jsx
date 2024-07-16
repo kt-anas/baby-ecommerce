@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../home/Nav';
-import Footer from '../home/Footer';
+import Nav from '../../components/nav/Nav';
+import Footer from '../../components/footer/Footer';
 
 export default function Aboutus() {
   return (

@@ -5,7 +5,7 @@ import Logo from '../../assets/img/baby-store-logo.svg';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
  
-import { CartContext } from '../context/CartProvider';
+import { CartContext } from '../../context/CartProvider';
 
 export default function Nav() {
 
