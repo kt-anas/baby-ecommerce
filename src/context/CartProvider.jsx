@@ -81,14 +81,14 @@ useEffect(()=>{
     },[])
      
     
-      const filteredProduct= products.filter(item =>
-       item.name ?.toLowerCase().includes(searchTerm.toLowerCase())
+      const SearchProduct= products.filter(item =>
+       item.description ?.toLowerCase().includes(searchTerm.toLowerCase())
       );
   
 
 
   return (
-    <CartContext.Provider value={{ cart, addCart, removeFromCart, clearCart, handleDecrement, handleIncrement, cartCount, totalPrice,handleSearchChange,filteredProduct }}>
+    <CartContext.Provider value={{ cart, addCart, removeFromCart, clearCart, handleDecrement, handleIncrement, cartCount, totalPrice,handleSearchChange,SearchProduct }}>
       {children}
     </CartContext.Provider>
   );

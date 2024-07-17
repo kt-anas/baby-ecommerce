@@ -11,6 +11,122 @@
     
      
 }
+
+.filter {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .filter:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+  }
+  
+  .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    
+    left: 50%;
+     
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(-10px); /* Start with tooltip slightly higher */
+  }
+  
+  .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+  }
+  
+  /* Adjust position for subsequent tooltips */
+  .tooltiptext:nth-of-type(1) {
+    top: 125%;
+  }
+  
+  .tooltiptext:nth-of-type(2) {
+    top: calc(125% + 60px); /* Adjust as needed */
+  }
+  
+  .tooltiptext:nth-of-type(3) {
+    top: calc(125% + 120px); /* Adjust as needed */
+  }
+  .tooltiptext:nth-of-type(4) {
+    top: calc(125% + 180px); /* Adjust as needed */
+  }
+  .tooltiptext:nth-of-type(5) {
+    top: calc(125% + 240px); /* Adjust as needed */
+  }
+  
+  /* Add more styles for additional tooltips as needed */
+  .filter .icon {
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+  }
+  
+  /* Add animation for hover effect */
+  .filter:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+  }
+  
+  
+  
+ 
+/* .filter{
+    cursor: pointer;
+}
+.filter:hover .text{
+    visibility: visible;
+    opacity: 1;
+}
+
+.text{
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #3E1F55;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  
+
+}
+.text::after{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+  */
+
 button.py-2{
     background-color: #FF6F61;
 }

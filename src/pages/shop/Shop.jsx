@@ -11,8 +11,7 @@ export default function Shop() {
   return (
     
     <div className='shop'>
-    <Nav/>
-          
+      <Nav/> 
       <Products/>   
       <Footer/>
     </div>

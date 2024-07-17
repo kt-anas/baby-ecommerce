@@ -9,7 +9,10 @@ const ShopCart = () => {
     <>
       <Nav />
       <div className="p-4 md:p-8">
+        
         <h6 className="text-6xl md:text-3xl font-bold mb-36 text-center">Cart</h6>
+         
+
         {cart.length === 0 ? (
           <div className="text-6xl md:text-2xl text-center">YOUR CART IS EMPTY.</div>
         ) : (

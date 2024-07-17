@@ -5,14 +5,16 @@ import './Products.css';
 
 const ProductsProvider = () => {
   const [products, setProducts] = useState([]);
-  const { addCart,filteredProduct } = useContext(CartContext);
-
+  const { addCart,SearchProduct } = useContext(CartContext);
+  const  [filter,setFilter] =useState('All');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get('http://localhost:3000/products');
         setProducts(res.data);
-
+        setFilteredProducts(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -20,26 +22,131 @@ const ProductsProvider = () => {
     fetchProducts();
   }, []);
 
-  // Function to render star rating based on product's rating
-//   const renderStars = (rating) => {
-//     const stars = [];
-//     for (let i = 0; i < 5; i++) {
-//       if (i < rating) {
-//         stars.push(<span key={i} className="text-yellow-500">&#9733;</span>); // Filled star
-//       } else {
-//         stars.push(<span key={i} className="text-gray-400">&#9733;</span>); // Empty star
-//       }
-//     }
-//     return stars;
-//   };
-  console.log(filteredProduct)
+  useEffect(() => {
+    if (filter === 'All') {
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(products.filter(item => item.name ?.toLowerCase().includes(filter.toLowerCase())));
+    }
+  }, [filter, products]);
+
+
+  const handleFilterChange = (category) => {
+    setFilter(category);
+  };
+  
+//   const displayProducts = filteredProducts && filteredProducts.length > 0 ? filteredProducts : SearchProduct;
+//   const displaysearchProducts = SearchProduct && SearchProduct.length > 0 ? SearchProduct : filteredProducts;
+
+  const displayProducts = filteredProducts && filteredProducts.length > 0 ? filteredProducts : SearchProduct;
+
+ console.log(filteredProducts)
   return (
     <div className="container mx-auto min-h-screen p-10">
-      <h1 className="text-6xl font-bold text-left mb-40 pt-20 pl-10">Shop</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 px-4 md:px-6">
-      {(filteredProduct) ? (
+      <h1 className="text-6xl font-bold text-left mb-20 pt-20 pl-10">Shop</h1>
+     {/* <div className=' flex gap-3 align-middle ml-10'>
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7 filter">
+     <path d="M18.75 12.75h1.5a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM12 6a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 6ZM12 18a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 18ZM3.75 6.75h1.5a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM5.25 18.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5ZM3 12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 12ZM9 3.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM12.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM9 15.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
+     </svg> 
+     <div className='text'>Toys</div>
+     <div className='text'>Toys</div>
+     <div className='text'>Toys</div>
+     <h6>
+      Filter
+      </h6>
+     </div> */}
+     <div className="filter">
+        <div className=' ml-10 flex gap-3'>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7 ">
+     <path d="M18.75 12.75h1.5a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM12 6a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 6ZM12 18a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 18ZM3.75 6.75h1.5a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM5.25 18.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5ZM3 12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 12ZM9 3.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM12.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM9 15.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
+     </svg> 
+     <h6>
+      Filter
+      </h6>
+     </div>
+     <button className='tooltiptext'onClick={() => handleFilterChange('All')}>All</button>
+     <button className='tooltiptext'onClick={()=>handleFilterChange('Clothe')}>Clothes</button>
+     <button className='tooltiptext'onClick={()=>handleFilterChange('Nursery')}>Nursery</button>
+     <button className='tooltiptext'onClick={()=>handleFilterChange('Nutrition')}>Nutrition</button>
+     <button className='tooltiptext'onClick={()=>handleFilterChange('Toys')}>Toys</button>
+     {/* <div class="tooltiptext">Clothes</div> */}
+     {/* <button className='tooltiptext'>btn</button>
+     <div class="tooltiptext">Nursery</div>
+     <div class="tooltiptext">Nutrition</div>
+     <div class="tooltiptext">Toys</div> */}
+     </div>
+
+
+  
+    
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 px-4 md:px-6 mt-20">
+   
+       
+      
+
+        {displayProducts.map((product) => (
+            <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
+            <img className="w-full" src={product.image} alt={product.name} />
+            <div className="px-4 py-4">
+ 
+              <p className="text-gray-700 text-base">{product.description}</p>
+              <span  className="text-yellow-500 text-2xl" >&#9733;</span>
+              <span className="text-yellow-500 text-2xl">&#9733;</span>
+              <span className="text-yellow-500 text-2xl">&#9733;</span>
+              <span className="text-yellow-500 text-2xl">&#9733;</span>
+              <span className="text-yellow-500 text-2xl">&#9733;</span>
+            </div>
+            <div className="flex justify-between items-center px-4 py-2">
+              <span className="text-xl font-bold text-gray-900">${product.price}</span>
+    
+    
+           
+              <button
+                className=" hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
+                onClick={() => addCart(product)}
+              >
+                ADD TO CART
+              </button>
+            </div>
+          </div>
+      ))}
+    
+       
+      
+      
+{/* 
+      { (filteredProducts) ?(
+            <>
+            {filteredProducts.map((product) => (
+             <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
+               <img className="w-full" src={product.image} alt={product.name} />
+               <div className="px-4 py-4">
+    
+                 <p className="text-gray-700 text-base">{product.description}</p>
+                 <span  className="text-yellow-500 text-2xl" >&#9733;</span>
+                 <span className="text-yellow-500 text-2xl">&#9733;</span>
+                 <span className="text-yellow-500 text-2xl">&#9733;</span>
+                 <span className="text-yellow-500 text-2xl">&#9733;</span>
+                 <span className="text-yellow-500 text-2xl">&#9733;</span>
+               </div>
+               <div className="flex justify-between items-center px-4 py-2">
+                 <span className="text-xl font-bold text-gray-900">${product.price}</span>
+       
+       
+              
+                 <button
+                   className=" hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
+                   onClick={() => addCart(product)}
+                 >
+                   ADD TO CART
+                 </button>
+               </div>
+             </div>
+           ))}
+           </>
+      ):(SearchProduct) ? (
          <>
-         {filteredProduct.map((product) => (
+         {SearchProduct.map((product) => (
           <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
             <img className="w-full" src={product.image} alt={product.name} />
             <div className="px-4 py-4">
@@ -96,7 +203,7 @@ const ProductsProvider = () => {
         ))}
         </>
       )}
-        
+         */}
       </div>
     </div>
   );
