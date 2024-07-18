@@ -5,56 +5,80 @@
       "name": "muheenudheen",
       "email": "muheenudeen313@gmail.com",
       "password": "123456",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "cart": [],
+      "order": []
     },
     {
       "id": "7cf3",
       "name": "anas",
       "email": "ktmanas2020@gmail.com",
       "password": "123456",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "cart": [],
+      "order": []
     },
     {
       "id": "fff9",
       "name": "anas",
       "email": "ktmnas2020@gmail.com",
       "password": "123456",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "cart": [],
+      "order": []
     },
     {
       "id": "349e",
       "name": "anas",
       "email": "anas@gmail.com",
       "password": "12345678",
-      "confirmPassword": "12345678"
+      "confirmPassword": "12345678",
+      "cart": [],
+      "order": []
     },
     {
       "id": "9212",
       "name": "anas",
       "email": "ktanas@gmail.com",
       "password": "12345678",
-      "confirmPassword": "12345678"
+      "confirmPassword": "12345678",
+      "cart": [],
+      "order": []
     },
     {
       "id": "3a68",
       "name": "anas",
       "email": "kt@gmail.com",
       "password": "12345678",
-      "confirmPassword": "12345678"
+      "confirmPassword": "12345678",
+      "cart": [],
+      "order": []
     },
     {
       "id": "ebce",
       "name": "ty",
       "email": "mu@gmail.com",
       "password": "12345678",
-      "confirmPassword": "12345678"
+      "confirmPassword": "12345678",
+      "cart": [],
+      "order": []
     },
     {
       "id": "203e",
       "name": "anas",
       "email": "anaskt@gmail.com",
       "password": "12345678",
-      "confirmPassword": "12345678"
+      "confirmPassword": "12345678",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "6ef1",
+      "name": "anas",
+      "email": "ktm@gmail.com",
+      "password": "test1234",
+      "confirmPassword": "test1234",
+      "cart": []
     }
   ],
   "products": [

@@ -1,9 +1,46 @@
- 
-Extra Soft Touch Lamb Doll
-$8.50
-
-Twin Cute Bunny Set Combo
-$40.25
-
-Colorful Birdies on Orange Bandana
-$4.75
+ src/
+|-- components/
+|   |-- Admin/
+|       |-- Dashboard/
+|           |-- Dashboard.js
+|           |-- Dashboard.module.css
+|       |-- Users/
+|           |-- UserList.js
+|           |-- UserDetail.js
+|           |-- UserEdit.js
+|           |-- UserList.module.css
+|           |-- UserDetail.module.css
+|           |-- UserEdit.module.css
+|       |-- Products/
+|           |-- ProductList.js
+|           |-- ProductDetail.js
+|           |-- ProductEdit.js
+|           |-- ProductList.module.css
+|           |-- ProductDetail.module.css
+|           |-- ProductEdit.module.css
+|       |-- Orders/
+|           |-- OrderList.js
+|           |-- OrderDetail.js
+|           |-- OrderEdit.js
+|           |-- OrderList.module.css
+|           |-- OrderDetail.module.css
+|           |-- OrderEdit.module.css
+|       |-- Sidebar.js
+|       |-- Header.js
+|       |-- AdminLayout.js
+|       |-- Admin.module.css
+|
+|-- context/
+|   |-- AdminContext.js
+|
+|-- hooks/
+|   |-- useAdmin.js
+|
+|-- services/
+|   |-- adminService.js
+|
+|-- pages/
+|   |-- AdminPage.js
+|
+|-- App.js
+|-- index.js

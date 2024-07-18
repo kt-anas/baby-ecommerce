@@ -9,6 +9,7 @@ const ProductsProvider = () => {
   const  [filter,setFilter] =useState('All');
   const [filteredProducts, setFilteredProducts] = useState([]);
   
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -22,6 +23,7 @@ const ProductsProvider = () => {
     fetchProducts();
   }, []);
 
+  
   useEffect(() => {
     if (filter === 'All') {
       setFilteredProducts(products);

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+
 import axios from 'axios';
+import { CartContext } from '../../context/CartProvider';
 
 const initialValues = {
   email: "",
@@ -11,15 +13,34 @@ const initialValues = {
 
 const Logsign = () => {
   const navigate = useNavigate();
+  const {setIsLogged,isLogged} = useContext(CartContext);
 
   const onSubmit = (values, { setSubmitting }) => {
+    let adminData=false
     axios.get('http://localhost:3000/users')
       .then((res) => {
+        
+        // const adminData=res.data.find(item => item.email === 'admin@gmail.com' && item.password === 'boss');
+
+        if(values.email===`admin@gmail.com` && values.password===`boss`){
+            adminData=true;
+        }
         const findeData = res.data.find(item => item.email === values.email && item.password === values.password);
         const exitData = res.data.find(item => item.email === values.email && item.password !== values.password);
-        if (findeData) {
+        
+
+        if(adminData){
+            toast.success('welcome admin');
+                    localStorage.setItem('id', values.email);
+                    setIsLogged(true);
+                    setTimeout(() => navigate("/admin"), 1000);
+        }
+
+        else if(findeData) {
           toast.success('Login successful');
           localStorage.setItem('id', findeData.id);
+          setIsLogged(true);
+
           setTimeout(() => navigate("/"), 1000);
         } else if (exitData) {
           toast.error('Enter your password correctly')
@@ -36,6 +57,9 @@ const Logsign = () => {
       });
   }
 
+
+
+
   const validate = (values) => {
     let errors = {}
     if (!values.email) {
@@ -48,6 +72,8 @@ const Logsign = () => {
     }
     return errors
   }
+
+
 
   const formik = useFormik({
     initialValues,
