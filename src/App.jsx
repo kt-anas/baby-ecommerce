@@ -39,11 +39,12 @@ function App() {
         <Route path='/profile' element={<Profile/>}/>
         <Route path="/register" element={<Sign />} />
         <Route path='/admin' element={<Admin/>}>
-            <Route path="user" element={<UserList/>}/>
+            <Route index element={<UserList />} />
+            <Route  path="user"  element={<UserList/>}/>
             <Route path="product" element={<ProductList/>}/>
             <Route path="revenue" element={<Revenue/>}/>
         </Route>    
-            <Route path='/useDetails' element={<UserDetail/>}/>
+        <Route path='/useDetails' element={<UserDetail/>}/>
       
       </Routes>
     </Router>

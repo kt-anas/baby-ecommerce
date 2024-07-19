@@ -89,6 +89,7 @@
   
   
  
+
 /* .filter{
     cursor: pointer;
 }
@@ -127,6 +128,9 @@
 }
   */
 
+
+
+
 button.py-2{
     background-color: #FF6F61;
 }
@@ -135,4 +139,4 @@ button.py-2{
     font-weight: 400;
     font-style: normal;
     color: #3E1F55;
- }
+ }  

@@ -39,6 +39,7 @@ const Logsign = () => {
         else if(findeData) {
           toast.success('Login successful');
           localStorage.setItem('id', findeData.id);
+          localStorage.setItem('user', JSON.stringify(findeData));
           setIsLogged(true);
 
           setTimeout(() => navigate("/"), 1000);

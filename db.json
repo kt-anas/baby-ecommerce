@@ -33,7 +33,32 @@
       "email": "anas@gmail.com",
       "password": "12345678",
       "confirmPassword": "12345678",
-      "cart": [],
+      "cart": [
+        {
+          "id": "1",
+          "name": "toys",
+          "description": "Extra Soft Touch Lamb Doll",
+          "price": "8.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "clothes",
+          "description": "Twin Cute Bunny Set Combo",
+          "price": "40.25",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-11.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "name": "clothes",
+          "description": "Colorful Birdies on Orange Bandana",
+          "price": "4.75",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-10.jpg",
+          "quantity": 1
+        }
+      ],
       "order": []
     },
     {
