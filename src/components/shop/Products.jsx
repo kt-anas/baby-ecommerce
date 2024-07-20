@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { CartContext } from '../../context/CartProvider';
 import './Products.css';
- 
+import { Toaster, toast } from 'react-hot-toast';
 const ProductsProvider = () => {
   const [products, setProducts] = useState([]);
   const { addCart,SearchProduct } = useContext(CartContext);
@@ -40,7 +40,7 @@ const ProductsProvider = () => {
 //   const displayProducts = filteredProducts && filteredProducts.length > 0 ? filteredProducts : SearchProduct;
 //   const displaysearchProducts = SearchProduct && SearchProduct.length > 0 ? SearchProduct : filteredProducts;
 
-  const displayProducts = filteredProducts && filteredProducts.length > 0 ? filteredProducts : SearchProduct;
+  const displayProducts =   SearchProduct;
 
  console.log(filteredProducts)
   return (
@@ -66,11 +66,13 @@ const ProductsProvider = () => {
       Filter
       </h6>
      </div>
+     <div className='btn'>
      <button className='tooltiptext'onClick={() => handleFilterChange('All')}>All</button>
      <button className='tooltiptext'onClick={()=>handleFilterChange('Clothe')}>Clothes</button>
      <button className='tooltiptext'onClick={()=>handleFilterChange('Nursery')}>Nursery</button>
      <button className='tooltiptext'onClick={()=>handleFilterChange('Nutrition')}>Nutrition</button>
      <button className='tooltiptext'onClick={()=>handleFilterChange('Toys')}>Toys</button>
+     </div>
      {/* <div class="tooltiptext">Clothes</div> */}
      {/* <button className='tooltiptext'>btn</button>
      <div class="tooltiptext">Nursery</div>
@@ -206,6 +208,7 @@ const ProductsProvider = () => {
         </>
       )}
          */}
+           <Toaster />
       </div>
     </div>
   );

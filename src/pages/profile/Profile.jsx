@@ -7,7 +7,6 @@ export default function Profile() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Assuming user data is stored in local storage
     const userData = JSON.parse(localStorage.getItem('user'));
     setUser(userData);
   }, []);

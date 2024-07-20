@@ -14,27 +14,34 @@
 
 .filter {
     position: relative;
+    display: flex;
     display: inline-block;
     cursor: pointer;
     font-family: "Arial", sans-serif;
   }
-  
+  .btn{
+    display: flex;  
+    flex-wrap: wrap; 
+    gap: 10px;  
+  }
   .filter:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0); /* Move to original position */
+    transform: translateY(0);
+     /* Move to original position */
   }
   
   .tooltiptext {
     visibility: hidden;
-    width: auto;
-    background-color: #333;
+    width: 100px;
+    background-color: #3E1F55;
     color: #fff;
     text-align: center;
     border-radius: 5px;
     padding: 10px;
     position: absolute;
-    
+    display: inline-block;
+    margin-right: 10px;
     left: 50%;
      
     opacity: 0;
@@ -50,7 +57,7 @@
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent #333 transparent;
+    border-color: transparent transparent  transparent;
   }
   
   /* Adjust position for subsequent tooltips */

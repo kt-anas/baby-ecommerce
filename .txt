@@ -1,3 +1,41 @@
+ 
+ src/
+│
+├── components/
+│   ├── Payment/
+│   │   ├── PaymentForm.js
+│   │   ├── PaymentSummary.js
+│   │   ├── PaymentHistory.js
+│   │   ├── PaymentMethod.js
+│   │   └── PaymentSuccess.js
+│   │
+│   └── common/
+│       ├── Button.js
+│       ├── Input.js
+│       └── Modal.js
+│
+├── pages/
+│   ├── PaymentPage.js
+│   └── PaymentHistoryPage.js
+│
+├── hooks/
+│   ├── usePayment.js
+│   └── useFormValidation.js
+│
+├── services/
+│   └── paymentService.js
+│
+├── styles/
+│   └── payment.css
+│
+├── utils/
+│   └── validation.js
+│
+└── App.js
+
+ 
+ 
+ 
  src/
 |-- components/
 |   |-- Admin/

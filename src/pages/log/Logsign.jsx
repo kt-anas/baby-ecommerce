@@ -13,6 +13,7 @@ const initialValues = {
 
 const Logsign = () => {
   const navigate = useNavigate();
+  
   const {setIsLogged,isLogged} = useContext(CartContext);
 
   const onSubmit = (values, { setSubmitting }) => {
@@ -30,10 +31,10 @@ const Logsign = () => {
         
 
         if(adminData){
-            toast.success('welcome admin');
-                    localStorage.setItem('id', values.email);
-                    setIsLogged(true);
-                    setTimeout(() => navigate("/admin"), 1000);
+        toast.success('welcome admin');
+        localStorage.setItem('id', values.email);
+        setIsLogged(true);
+         setTimeout(() => navigate("/admin"), 1000);
         }
 
         else if(findeData) {

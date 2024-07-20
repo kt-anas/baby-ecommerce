@@ -17,7 +17,7 @@ import UserList from './components/admin/User/UserList.jsx'
 import ProductList from './components/admin/Products/ProductList.jsx'
 import Revenue from './components/admin/Revenue/Revenue.jsx'
 import UserDetail from './components/admin/User/UserDetail.jsx'
-
+import Payment from './pages/Payment/Payment.jsx'
   // Import the Tailwind CSS file
  
 function App() {
@@ -34,6 +34,7 @@ function App() {
         {/* <Route path='/testimonials' element={<Testimonial/>}/> */}
         <Route path='/contact-us' element={<Contactus/>}/>
         <Route path='/cart' element={<ShopCart/>}/>
+        <Route path='/payment' element={<Payment/>}/>
         <Route path="/logsign" element={<Logsign />} />
         {/* <Route path='/admin' element={<Admin/>}/> */}
         <Route path='/profile' element={<Profile/>}/>
