@@ -16,8 +16,6 @@ const Footer = () => {
               <p>123 Fifth Ave, New York, NY 12004.</p>
               <p>+1 123 456 78 90</p>
               <p>mail@example.com</p>
-
-             
             </div>
           </div>
 
@@ -28,12 +26,12 @@ const Footer = () => {
           <div className="mb-4">
             <h3 className="text-lg font-bold mb-2">Customer Service</h3>
             <ul>
-              <li><a href="#" className="hover:text-white">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white">Help & FAQs</a></li>
-              <li><a href="#" className="hover:text-white">Payment Method</a></li>
-              <li><a href="#" className="hover:text-white">Delivery Information</a></li>
-              <li><a href="#" className="hover:text-white">Track Your Order</a></li>
-              <li><a href="#" className="hover:text-white">Return & Exchanges</a></li>
+              <li><a href="#" className="hover:text-gray-600">Contact Us</a></li>
+              <li><a href="#" className="hover:text-gray-600">Help & FAQs</a></li>
+              <li><a href="#" className="hover:text-gray-600">Payment Method</a></li>
+              <li><a href="#" className="hover:text-gray-600">Delivery Information</a></li>
+              <li><a href="#" className="hover:text-gray-600">Track Your Order</a></li>
+              <li><a href="#" className="hover:text-gray-600">Return & Exchanges</a></li>
             </ul>
           </div>
 
@@ -41,11 +39,11 @@ const Footer = () => {
           <div className="mb-4">
             <h3 className="text-lg font-bold mb-2">Categories</h3>
             <ul>
-              <li><a href="#" className="hover:text-white">Clothing & Fashion</a></li>
-              <li><a href="#" className="hover:text-white">Toys</a></li>
-              <li><a href="#" className="hover:text-white">School Supplies</a></li>
-              <li><a href="#" className="hover:text-white">Birthday Party Supplies</a></li>
-              <li><a href="#" className="hover:text-white">Baby Diapering</a></li>
+              <li><a href="#" className="hover:text-gray-600">Clothing & Fashion</a></li>
+              <li><a href="#" className="hover:text-gray-600">Toys</a></li>
+              <li><a href="#" className="hover:text-gray-600">School Supplies</a></li>
+              <li><a href="#" className="hover:text-gray-600">Birthday Party Supplies</a></li>
+              <li><a href="#" className="hover:text-gray-600">Baby Diapering</a></li>
             </ul>
           </div>
 
@@ -53,10 +51,10 @@ const Footer = () => {
           <div className="mb-4">
             <h3 className="text-lg font-bold mb-2">Our Company</h3>
             <ul>
-              <li><a href="#" className="hover:text-white">Corporate Information</a></li>
-              <li><a href="#" className="hover:text-white">Privacy & Cookies Policy</a></li>
-              <li><a href="#" className="hover:text-white">Terms & Condition</a></li>
-              <li><a href="#" className="hover:text-white">Promo & Terms</a></li>
+              <li><a href="#" className="hover:text-gray-600">Corporate Information</a></li>
+              <li><a href="#" className="hover:text-gray-600">Privacy & Cookies Policy</a></li>
+              <li><a href="#" className="hover:text-gray-600">Terms & Condition</a></li>
+              <li><a href="#" className="hover:text-gray-600">Promo & Terms</a></li>
             </ul>
           </div>
         </div>

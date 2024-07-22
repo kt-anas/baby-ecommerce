@@ -13,12 +13,16 @@ export default function CartProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [orderlist, setOrderlist] = useState(["mhg"]);
   const [productslist, setProductslist] = useState([]);
- 
+  const [products, setProducts] = useState([]);
   //   total price
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
 
-
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/products`)
+    .then(res=>setProducts(res.data))
+      
+    },[])
 
   //  count cart changes
   useEffect(() => {
@@ -66,7 +70,7 @@ export default function CartProvider({ children }) {
         );
       } else {
         // Add new product to the cart
-        updatedCart = [...prevCart, { ...product, quantity: 1 }];
+        updatedCart = [...prevCart, { ...product , quantity: 1 }];
       }
   
       // Sync cart with backend
@@ -88,22 +92,51 @@ export default function CartProvider({ children }) {
   };
   
 
-   
-
   const handleIncrement = (index) => {
-    const newCart = [...cart];
-    newCart[index].quantity++;
-    setCart(newCart);
-  };
+    setCart((prevCart) => {
+        const newCart = [...prevCart];
+        newCart[index].quantity+=1;
+        
+        // Sync updated cart with backend
+        if (id) {
+            axios.patch(`http://localhost:3000/users/${id}`, { cart: newCart })
+                .then(() => console.log('Cart updated in backend'))
+                .catch(error => console.error('Error updating cart in backend:', error));
+        }
+        
+        return newCart;
+    });
+};
 
 
-  const handleDecrement = (index) => {
-    const newCart = [...cart];
-    if (newCart[index].quantity > 1) {
-      newCart[index].quantity--;
-      setCart(newCart);
-    }
-  };
+
+const handleDecrement = (index) => {
+    setCart((prevCart) => {
+        const newCart = [...prevCart];
+        if (newCart[index].quantity > 1) {
+            newCart[index].quantity--;
+            
+            // Update backend only if user is logged in
+            if (id) {
+                axios.patch(`http://localhost:3000/users/${id}`, { cart: newCart })
+                    .then(() => console.log('Cart updated in backend'))
+                    .catch(error => console.error('Error updating cart in backend:', error));
+            }
+            
+            return newCart;
+        }
+        
+        // Return previous cart if quantity is not greater than 1
+        return prevCart;
+    });
+};
+
+
+       
+
+
+    
+  
 
 
   const removeFromCart = (productId) => {
@@ -137,7 +170,7 @@ export default function CartProvider({ children }) {
 
 //------------search----------//
 const [searchTerm, setSearchTerm] = useState('');
-const[products,setProducts]=useState([])
+ 
 
 
 
@@ -145,6 +178,7 @@ const handleSearchChange = (event) => {
   setSearchTerm(event.target.value);
 };
 
+ //set product list
 useEffect(()=>{
     axios.get(`http://localhost:3000/products`)
     .then(res=>setProducts(res.data))
@@ -160,7 +194,7 @@ useEffect(()=>{
 
   return (
     <CartContext.Provider value={{ cart, addCart, removeFromCart, clearCart, handleDecrement, handleIncrement, cartCount, totalPrice,handleSearchChange,SearchProduct,
-        isLogged, setIsLogged
+        isLogged, setIsLogged,setProducts
      }}>
       {children}
     </CartContext.Provider>

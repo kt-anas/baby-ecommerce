@@ -1,52 +1,41 @@
-import React, { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
-import { CartContext } from '../../context/CartProvider';
-import './Products.css';
-import { Toaster, toast } from 'react-hot-toast';
+ 
+import React, { useEffect,useState } from 'react'
+import { Toaster } from 'react-hot-toast';
+import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
-const ProductsProvider = () => {
-  const [products, setProducts] = useState([]);
-  const { addCart,SearchProduct } = useContext(CartContext);
-  const  [filter,setFilter] =useState('All');
-  const [filteredProducts, setFilteredProducts] = useState([]);
+export default function Clothes() {
   const navigate = useNavigate();
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get('http://localhost:3000/products');
-        setProducts(res.data);
-        setFilteredProducts(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  
-  useEffect(() => {
-    if (filter === 'All') {
-      setFilteredProducts(products);
-    } else {
-      setFilteredProducts(products.filter(item => item.name ?.toLowerCase().includes(filter.toLowerCase())));
-    }
-  }, [filter, products]);
-
-
-  const handleFilterChange = (category) => {
-    setFilter(category);
-  };
-  
-//   const displayProducts = filteredProducts && filteredProducts.length > 0 ? filteredProducts : SearchProduct;
-//   const displaysearchProducts = SearchProduct && SearchProduct.length > 0 ? SearchProduct : filteredProducts;
-
-  const displayProducts =   SearchProduct;
-
- console.log(filteredProducts)
+    useEffect(() => {
+        const fetchProducts = async () => {
+          try {
+            const res = await axios.get('http://localhost:3000/products'); // Replace with your actual API endpoint
+            setProducts(res.data);
+            filterClothes(res.data);
+          } catch (err) {
+            console.error('Error fetching products:', err);
+          }
+        };
+    
+        fetchProducts();
+      }, []);
+    
+      /**
+       * Filters the products array to only include products in the 'clothes' category
+       * @param {array} products - The array of products to filter
+       */
+      const filterClothes = (products) => {
+        // Filter the products array to only include products in the 'clothes' category
+        const clothes = products.filter(product => product.name === 'clothes');
+        // Set the state of filteredProducts to the result of the filter
+        setFilteredProducts(clothes);
+      };
   return (
-    <div className="container mx-auto min-h-screen p-10">
-      <h1 className="text-6xl font-bold text-left mb-20 pt-20 pl-10">Shop</h1>
+    <>
+      <div className="container mx-auto min-h-screen p-10">
+      <h1 className="text-6xl font-bold text-left mb-10 pt-10 pl-10">Clothes</h1>
      {/* <div className=' flex gap-3 align-middle ml-10'>
      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7 filter">
      <path d="M18.75 12.75h1.5a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM12 6a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 6ZM12 18a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 18ZM3.75 6.75h1.5a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM5.25 18.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5ZM3 12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 12ZM9 3.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM12.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM9 15.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
@@ -89,7 +78,7 @@ const ProductsProvider = () => {
        
       
 
-        {displayProducts.map((product) => (
+        {filteredProducts.map((product) => (
             <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
             <img className="w-full" src={product.image} alt={product.name} />
             <div className="px-4 py-4">
@@ -212,7 +201,6 @@ const ProductsProvider = () => {
            <Toaster />
       </div>
     </div>
-  );
-};
-
-export default ProductsProvider;
+    </>
+  )
+}

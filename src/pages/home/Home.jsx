@@ -2,8 +2,7 @@ import React, { useEffect,useState } from 'react';
 import Nav from '../../components/nav/Nav';
 import Footer from '../../components/footer/Footer';
 import './Home.css'
- import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+ import axios from 'axios';import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
