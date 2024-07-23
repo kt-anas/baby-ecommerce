@@ -11,13 +11,23 @@ export default function ProductDetail() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    /**
+     * Fetches a product from the API based on the productId
+     * and updates the state variables accordingly.
+     */
     const fetchProduct = async () => {
       try {
+        // Request product data from the API
         const res = await axios.get(`http://localhost:3000/products/${productId}`); // Replace with your actual API endpoint
+        
+        // Set the product state with the fetched data
         setProduct(res.data);
       } catch (err) {
+        // Handle error when fetching product details
         setError('Error fetching product details');
+        toast.error('Error fetching product details');
       } finally {
+        // Set loading to false after fetch completes
         setLoading(false);
       }
     };
@@ -25,12 +35,24 @@ export default function ProductDetail() {
     fetchProduct();
   }, [productId]);
 
+  /**
+   * Deletes a product from the API based on the productId
+   * and navigates to the product list page after deletion.
+   *
+   * @return {Promise<void>}
+   */
   const deleteProduct = async () => {
     try {
-      await axios.delete(`http://localhost:3000/products/${productId}`); // Replace with your actual API endpoint
+      // Send a DELETE request to the API to delete the product
+      await axios.delete(`http://localhost:3000/products/${productId}`);  
+
+      // Show success toast message
       toast.success('Product deleted successfully');
+
+      // Redirect to the product list page
       navigate('/admin/product');
     } catch (err) {
+      // Show error toast message when deletion fails
       toast.error('Error deleting product');
     }
   };

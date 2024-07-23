@@ -42,7 +42,7 @@ const Logsign = () => {
           localStorage.setItem('id', findeData.id);
           localStorage.setItem('user', JSON.stringify(findeData));
           setIsLogged(true);
-
+          
           setTimeout(() => navigate("/"), 1000);
         } else if (exitData) {
           toast.error('Enter your password correctly')

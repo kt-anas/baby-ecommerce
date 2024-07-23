@@ -12,9 +12,15 @@ export default function Nav() {
     const navigate = useNavigate();
 
   const [isOpen, setOpen] = useState(false);
-const {handleSearchChange,isLogged,setIsLogged} =useContext(CartContext);
+const {handleSearchChange,isLogged,setIsLogged,cart} =useContext(CartContext);
 
+  /**
+   * Toggles the state of the menu.
+   * 
+   * @returns {void}
+   */
   const toggleMenu = () => {
+    // Toggle the state of the menu by negating the current state.
     setOpen(!isOpen);
   };
 
@@ -47,9 +53,14 @@ const {handleSearchChange,isLogged,setIsLogged} =useContext(CartContext);
             />
           </div>
           <div className="flex items-center space-x-4">
-            <NavLink to='/cart'>
+            <NavLink to='/cart' className='relative'>
+
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-5 w-5 text-xs flex items-center justify-center">
+                {cart.length}
+              </span>
+
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fillRule="currentColor" className="h-6 w-6 text-gray-500 hover:text-gray-700">
-                <path fillRule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clipRule="evenodd" />
+                    <path fillRule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clipRule="evenodd" />
               </svg>
             </NavLink>
            {(isLogged) ? (

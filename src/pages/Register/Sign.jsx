@@ -27,30 +27,48 @@ const Sign = () => {
   const navigate = useNavigate();
   const [validateReg, setValidateReg] = useState(false);
 
+  /**
+   * Submit the form and handle registration or error messages.
+   *
+   * @param {Object} values - The form values.
+   * @param {Object} options - The form options.
+   * @param {Function} options.setSubmitting - The function to set form submitting status.
+   */
   const onSubmit = (values, { setSubmitting }) => {
+    // Fetch the list of users from the server
     axios.get('http://localhost:3000/users')
       .then(response => {
+        // Check if the user already exists
         const findeData = response.data.find(
           item => item.email === values.email
         );
+
         if (findeData) {
+          // Display an error message if the user already exists
           setValidateReg(true);
           toast.error("Account already exists");
         } else {
-          axios.post('http://localhost:3000/users', values).then((response) => {
-            toast.success("Registration Successful");
-            setTimeout(() => {
-              navigate('/logsign');
-            }, 1000);
-          }).catch((error) => {
-            toast.error("Server timed out");
-          });
+          // Register the new user
+          axios.post('http://localhost:3000/users', values)
+            .then((response) => {
+              // Display a success message and navigate to the login page after 1 second
+              toast.success("Registration Successful");
+              setTimeout(() => {
+                navigate('/logsign');
+              }, 1000);
+            })
+            .catch((error) => {
+              // Display an error message if the server timed out
+              toast.error("Server timed out");
+            });
         }
       })
       .catch(error => {
+        // Display an error message if the server timed out
         toast.error("Server timed out");
       })
       .finally(() => {
+        // Set the form submitting status to false
         setSubmitting(false);
       });
   };

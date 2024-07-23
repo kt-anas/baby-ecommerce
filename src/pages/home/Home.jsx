@@ -9,14 +9,23 @@ const Home = () => {
     const [best,setBest] = useState([])
 
     useEffect(()=>{
-        const fetchProduct=async()=>{
+        /**
+         * Fetches the first 3 products from the "products" API endpoint
+         * and sets the state variable "products" with the fetched data.
+         * Also fetches the next 4 products and sets the state variable "best" with the fetched data.
+         * If an error occurs during the fetch, it is logged to the console.
+         *
+         * @return {Promise<void>} - A promise that resolves when the fetch is complete
+         */
+        const fetchProduct = async () => {
             try {
+                // Fetch the first 3 products from the API endpoint
                 const res = await axios.get('http://localhost:3000/products');
-                setProducts(res.data.slice(0, 3)); 
-               setBest(res.data.slice(4,8))
-              } catch (error) {
-                console.log(error);
-              }
+                setProducts(res.data.slice(0, 3));  // Set the state variable "products" with the fetched data
+                setBest(res.data.slice(4,8)); // Set the state variable "best" with the fetched data
+            } catch (error) {
+                console.log(error); // Log the error to the console
+            }
         };
         fetchProduct();
     },[])
@@ -41,7 +50,7 @@ const Home = () => {
           <h6 className='text-5xl text-center mb-20'>New Arrivals</h6>
           <div className='flex'>
          {products.map((product) => (
-          <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
+          <div key={product.id} onClick={() => navigate(`/shop`)} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
             <img className="w-full" src={product.image} alt={product.name} />
             <div className="px-4 py-4">
  
@@ -68,7 +77,7 @@ const Home = () => {
           <h6 className='text-5xl text-center mb-20'>Best Seller</h6>
           <div className='flex'>
          {best.map((product) => (
-          <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
+          <div key={product.id} onClick={() => navigate(`/shop`)} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
             <img className="w-full" src={product.image} alt={product.name} />
             <div className="px-4 py-4">
  

@@ -14,45 +14,86 @@ const initialValues = {
   image: ''
 };
 
+/**
+ * Component for adding a new product
+ * @returns {JSX.Element} The AddProduct component
+ */
 const AddProduct = () => {
   const navigate = useNavigate();
   const { setProducts } = useContext(CartContext);
 
+  /**
+   * Function to handle form submission for adding a new product
+   * @param {object} values - The form values
+   * @param {function} setSubmitting - Function to set the submitting state
+   */
   const onSubmit = async (values, { setSubmitting }) => {
+    // Create a new product object with form values
     const newProduct = {
       ...values
-      
     };
 
     try {
+      // Send a POST request to add the new product
       const res = await axios.post('http://localhost:3000/products', newProduct);
+      
+      // Update the products state with the new product
       setProducts(prevProducts => [...prevProducts, res.data]);
+      
+      // Show success message
       toast.success('Product added successfully');
-      setTimeout(() => navigate('/admin'), 1000);
+      
+      // Navigate to the admin product page after a delay
+      setTimeout(() => navigate('/admin/product'), 1000);
     } catch (error) {
+      // Handle errors when adding a product
       console.error('Error adding product:', error);
       toast.error('Failed to add product');
     } finally {
+      // Set submitting state to false
       setSubmitting(false);
     }
   };
 
+  /**
+   * Validate the form values.
+   * 
+   * @param {object} values - The form values.
+   * @returns {object} The validation errors.
+   * 
+   * The following fields are required:
+   *  - name
+   *  - description
+   *  - price
+   *  - image
+   * 
+   * Price must be a number.
+   */
   const validate = (values) => {
     let errors = {};
+
+    // Name is required
     if (!values.name) {
       errors.name = 'Required';
     }
+
+    // Description is required
     if (!values.description) {
       errors.description = 'Required';
     }
+
+    // Price is required and must be a number
     if (!values.price) {
       errors.price = 'Required';
     } else if (isNaN(values.price)) {
       errors.price = 'Price must be a number';
     }
+
+    // Image is required
     if (!values.image) {
       errors.image = 'Required';
     }
+
     return errors;
   };
 
@@ -67,6 +108,7 @@ const AddProduct = () => {
       <div className="w-full max-w-md p-10 bg-white rounded-3xl border-2 border-gray-100">
         <Toaster />
         <form onSubmit={formik.handleSubmit} className="mt-8">
+          {/* Product Name */}
           <div className="flex flex-col text-left">
             <label htmlFor="name">Product Name</label>
             <input
@@ -81,6 +123,7 @@ const AddProduct = () => {
             />
             {formik.touched.name && formik.errors.name ? <div className="text-red-500">{formik.errors.name}</div> : null}
           </div>
+          {/* Description */}
           <div className="flex flex-col mt-4 text-left">
             <label htmlFor="description">Description</label>
             <textarea
@@ -94,6 +137,7 @@ const AddProduct = () => {
             />
             {formik.touched.description && formik.errors.description ? <div className="text-red-500">{formik.errors.description}</div> : null}
           </div>
+          {/* Price */}
           <div className="flex flex-col mt-4 text-left">
             <label htmlFor="price">Price</label>
             <input
@@ -108,6 +152,7 @@ const AddProduct = () => {
             />
             {formik.touched.price && formik.errors.price ? <div className="text-red-500">{formik.errors.price}</div> : null}
           </div>
+          {/* Image URL */}
           <div className="flex flex-col mt-4 text-left">
             <label htmlFor="image">Image URL</label>
             <input
@@ -122,6 +167,7 @@ const AddProduct = () => {
             />
             {formik.touched.image && formik.errors.image ? <div className="text-red-500">{formik.errors.image}</div> : null}
           </div>
+          {/* Add Product Button */}
           <div className="mt-8 flex flex-col gap-y-4">
             <button type="submit" className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform py-4 bg-orange-500 rounded-xl text-white font-bold text-lg">
               Add Product

@@ -16,14 +16,23 @@ const ProductEdit = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+/**
+     * Fetches a product from the API based on the productId
+     * and updates the state variables accordingly.
+     */
     const fetchProduct = async () => {
       try {
+        // Request product data from the API
         const res = await axios.get(`http://localhost:3000/products/${productId}`); // Replace with your actual API endpoint
+        
+        // Set the product state with the fetched data
         setProduct(res.data);
       } catch (err) {
+        // Handle error when fetching product details
         setError('Error fetching product details');
         toast.error('Error fetching product details');
       } finally {
+        // Set loading to false after fetch completes
         setLoading(false);
       }
     };
@@ -31,22 +40,55 @@ const ProductEdit = () => {
     fetchProduct();
   }, [productId]);
 
-  const handleInputChange = (e) => {
+/**
+ * Function to handle input change
+ *
+ * This function is used to update the state of the product object with the new value
+ * of the input field that triggered the event.
+ *
+ * @param {Object} e - Event object
+ * @param {string} e.target.name - The name of the input field that triggered the event
+ * @param {string} e.target.value - The value of the input field that triggered the event
+ */
+const handleInputChange = (e) => {
+    // Destructure the name and value properties from the event object
     const { name, value } = e.target;
-    setProduct({ ...product, [name]: value });
-  };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.put(`http://localhost:3000/products/${productId}`, product); // Replace with your actual API endpoint
-      toast.success('Product updated successfully');
-      navigate(`/admin/products/${productId}`);
-    } catch (err) {
-      setError('Error updating product');
-      toast.error('Error updating product');
-    }
-  };
+    // Create a new object by spreading the existing product object
+    // and updating the property specified by the name to the new value
+    setProduct({
+        ...product, // Create a new object by spreading the existing product object
+        [name]: value, // Update the property specified by the name to the new value
+    });
+};
+
+/**
+ * Function to handle form submission
+ *
+ * This function is triggered when the form is submitted and sends a PUT request to the API
+ * to update the product with the new data.
+ *
+ * @param {Object} e - Event object
+ * @returns {Promise<void>}
+ */
+const handleFormSubmit = async (e) => {
+  e.preventDefault(); // Prevent the default form submission behavior
+
+  try {
+    // Send a PUT request to the API to update the product
+    await axios.put(`http://localhost:3000/products/${productId}`, product);  
+
+    // Show success toast message
+    toast.success('Product updated successfully');
+
+    // Redirect to the product detail page
+    navigate(`/admin/products/${productId}`);
+  } catch (err) {
+    // Handle error when updating product
+    setError('Error updating product');
+    toast.error('Error updating product');
+  }
+};
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;

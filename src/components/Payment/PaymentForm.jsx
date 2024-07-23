@@ -14,30 +14,58 @@ const PaymentForm = () => {
     securityCode: ""
   }
 
+  /**
+   * Submit the payment form and handle the payment process.
+   *
+   * @param {Object} values - The form values.
+   * @param {Object} options - The form options.
+   * @param {Function} options.setSubmitting - The function to set form submitting status.
+   * @return {Promise<void>} - A promise that resolves when the payment process is complete.
+   */
   const onSubmit = async (values, { setSubmitting }) => {
     try {
-      // Assuming you have an endpoint to handle payment
+      // Make a POST request to the payment endpoint with the form values and the total amount
+      // of the cart items.
       const res = await axios.post('http://localhost:3000/payment', {
         ...values,
         amount: cart.reduce((acc, item) => acc + item.quantity * item.price, 0)
       });
+
+      // Show a success message and navigate to the home page after a delay.
       toast.success('Payment successful');
       setTimeout(() => navigate("/"), 1000);
     } catch (error) {
+      // Show an error message if the payment fails.
       toast.error('Payment failed');
     } finally {
+      // Set the form submitting status to false.
       setSubmitting(false);
     }
   }
 
+  /**
+   * Validate the payment form values.
+   *
+   * @param {Object} values - The form values.
+   * @returns {Object} The validation errors.
+   *
+   * The following fields are required:
+   *  - accNumber
+   *  - securityCode
+   */
   const validate = (values) => {
     let errors = {}
+
+    // Check if account number is required
     if (!values.accNumber) {
       errors.accNumber = 'Required'
     }
+
+    // Check if security code is required
     if (!values.securityCode) {
       errors.securityCode = 'Required'
     }
+
     return errors
   }
 

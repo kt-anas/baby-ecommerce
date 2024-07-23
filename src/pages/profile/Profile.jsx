@@ -2,12 +2,25 @@ import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CartContext } from '../../context/CartProvider';
 
+/**
+ * Profile component that displays the user's profile information.
+ * It retrieves the user data from local storage and displays it.
+ * It also provides a logout functionality that clears the local storage.
+ */
 export default function Profile() {
+  // Get the setIsLogged function from the CartContext
   const { setIsLogged } = useContext(CartContext);
+  // State to store the user data
   const [user, setUser] = useState(null);
 
+  /**
+   * Effect hook that retrieves the user data from local storage
+   * and sets it in the user state.
+   */
   useEffect(() => {
+    // Parse the user data from local storage
     const userData = JSON.parse(localStorage.getItem('user'));
+    // Set the user data in the user state
     setUser(userData);
   }, []);
 
@@ -16,6 +29,7 @@ export default function Profile() {
       <div className="w-full max-w-md p-10 bg-white rounded-3xl border-2 border-gray-100 shadow-md">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold">Profile</h1>
+          {/* Logout button that clears the local storage and sets the user as logged out */}
           <NavLink
             to="/logsign"
             onClick={() => {

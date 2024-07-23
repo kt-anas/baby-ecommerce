@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function UserList() {
     const [allUsers, setAllUsers] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -28,8 +29,12 @@ export default function UserList() {
         fetchAllUsers();
     }, []);
 
-    const currentUsers = allUsers.slice((page - 1) * limit, page * limit);
-    const totalPages = Math.ceil(allUsers.length / limit);
+    const filteredUsers = allUsers.filter(user =>
+        user.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const currentUsers = filteredUsers.slice((page - 1) * limit, page * limit);
+    const totalPages = Math.ceil(filteredUsers.length / limit);
 
     const nextPage = () => {
         setPage((prevPage) => Math.min(prevPage + 1, totalPages));
@@ -49,7 +54,16 @@ export default function UserList() {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">User</h2>
+            <h2 className="text-2xl font-bold mb-4">User List</h2>
+            <div className="mb-4 flex justify-center">
+                <input
+                    type="text"
+                    placeholder="Search users..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="border p-2 rounded-md w-1/3 bg-gray-100"
+                />
+            </div>
             <ul className="divide-y divide-gray-200">
                 {Array.isArray(currentUsers) && currentUsers.map(user => (
                     <li
