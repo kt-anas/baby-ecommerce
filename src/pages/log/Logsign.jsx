@@ -31,6 +31,7 @@ const Logsign = () => {
         
 
         if(adminData){
+            
         toast.success('welcome admin');
         localStorage.setItem('id', values.email);
         setIsLogged(true);
@@ -38,12 +39,16 @@ const Logsign = () => {
         }
 
         else if(findeData) {
+            if(findeData.status === 'active') {
           toast.success('Login successful');
           localStorage.setItem('id', findeData.id);
           localStorage.setItem('user', JSON.stringify(findeData));
           setIsLogged(true);
-          
           setTimeout(() => navigate("/"), 1000);
+             } else{
+               toast.error('User blocked');
+             }
+         
         } else if (exitData) {
           toast.error('Enter your password correctly')
         } else {

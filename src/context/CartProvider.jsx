@@ -14,7 +14,9 @@ export default function CartProvider({ children }) {
   const [orderlist, setOrderlist] = useState(["mhg"]);
   const [productslist, setProductslist] = useState([]);
   const [products, setProducts] = useState([]);
+
   //   total price
+  
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
 
@@ -226,7 +228,14 @@ const handleDecrement = (item, num) => { // this will decrease the cart product 
   
 
 
+  /**
+   * Clear the cart by setting it to an empty array.
+   *
+   * @return {void}
+   */
   const clearCart = () => {
+    // Set the cart to an empty array, effectively clearing the cart
+    // This will remove all products from the cart
     setCart([]);
   };
 
@@ -266,7 +275,7 @@ useEffect(()=>{
 
 
   return (
-    <CartContext.Provider value={{ cart, addCart, removeFromCart, clearCart, handleDecrement, handleIncrement, cartCount, totalPrice,handleSearchChange,SearchProduct,
+    <CartContext.Provider value={{ cart,totalPrice, addCart, removeFromCart, clearCart, handleDecrement, handleIncrement, cartCount,handleSearchChange,SearchProduct,
         isLogged, setIsLogged,setProducts
      }}>
       {children}

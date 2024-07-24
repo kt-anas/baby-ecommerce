@@ -23,8 +23,17 @@ const validationSchema = Yup.object({
     .required("Required"),
 });
 
+/**
+ * Sign component is a form for user registration.
+ *
+ * It handles form submission and displays error messages if the form is invalid.
+ * It also navigates to the login page after successful registration.
+ */
 const Sign = () => {
+  // Navigate to a specific route
   const navigate = useNavigate();
+
+  // State to handle validation errors
   const [validateReg, setValidateReg] = useState(false);
 
   /**
@@ -49,7 +58,8 @@ const Sign = () => {
           toast.error("Account already exists");
         } else {
           // Register the new user
-          axios.post('http://localhost:3000/users', values)
+          const userWithStatus = { ...values, status: 'active',cart:[],order:[] };
+          axios.post('http://localhost:3000/users', userWithStatus)
             .then((response) => {
               // Display a success message and navigate to the login page after 1 second
               toast.success("Registration Successful");
@@ -73,6 +83,7 @@ const Sign = () => {
       });
   };
 
+  // Initialize formik with initial values, onSubmit function, and validation schema
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -81,9 +92,11 @@ const Sign = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      {/* Form container */}
       <div className="w-full max-w-md p-10 bg-white rounded-3xl border-2 border-gray-100">
-        <Toaster />
+        <Toaster /> {/* Toast notification */}
         <form onSubmit={formik.handleSubmit} className="mt-4">
+          {/* Form fields */}
           <div className="flex flex-col mt-4 text-left">
             <label htmlFor="name">Name</label>
             <input

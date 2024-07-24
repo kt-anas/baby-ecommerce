@@ -24,15 +24,38 @@ export default function UserDetail() {
     };
 
     fetchUser();
-  }, [userId]);
+  });
 
-  const deleteUser = async () => {
-    try {
-      await axios.delete(`http://localhost:3000/users/${userId}`);
-      toast.success('User deleted successfully');
-      navigate('/admin'); // Redirect to the user list page after deletion
-    } catch (err) {
-      toast.error('Error deleting user');
+  /**
+   * Update the user status and redirect to the user list page
+   * @returns {Promise<void>}
+   */
+  const UserStatus = async () => {
+    // Check the current status of the user
+    if (user.status === 'Blocked') {
+      try {
+        // Update the user status to 'active'
+        await axios.patch(`http://localhost:3000/users/${userId}`, { status: 'active' });
+        // Show a success message
+        toast.success('User unblocked');
+        // Redirect to the user list page
+        navigate(`/userDetails/${userId}`);
+      } catch (err) {
+        // Show an error message if the update fails
+        toast.error('Error updating user status');
+      }
+    } else if (user.status === 'active') {
+      try {
+        // Update the user status to 'Blocked'
+        await axios.patch(`http://localhost:3000/users/${userId}`, { status: 'Blocked' });
+        // Show a success message
+        toast.success('User blocked');
+        // Redirect to the user list page
+        navigate(`/userDetails/${userId}`);
+      } catch (err) {
+        // Show an error message if the update fails
+        toast.error('Error updating user status');
+      }
     }
   };
 
@@ -61,9 +84,12 @@ export default function UserDetail() {
             
             <button
               className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-              onClick={deleteUser}
+              onClick={UserStatus}
             >
-              Delete
+              {user.status === 'active' ? (
+                  <div>Block User</div>):(
+                    <div>UnBlock User</div>
+                )}
             </button>
           </div>
         </div>

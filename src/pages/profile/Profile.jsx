@@ -43,7 +43,7 @@ export default function Profile() {
         </div>
         {user ? (
           <div className="bg-white rounded p-4">
-            <h2 className="text-xl font-semibold mb-2">User Details</h2>
+            <h2 className="text-xl font-semibold mb-2">User</h2>
             <p className="text-gray-700">Name: {user.name}</p>
             <p className="text-gray-700">Email: {user.email}</p>
             {/* Add more user details as needed */}

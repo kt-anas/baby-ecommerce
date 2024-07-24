@@ -54,7 +54,7 @@ export default function UserList() {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">User List</h2>
+            <h2 className="text-2xl font-bold mb-4">User</h2>
             <div className="mb-4 flex justify-center">
                 <input
                     type="text"

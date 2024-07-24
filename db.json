@@ -1,141 +1,13 @@
 {
   "users": [
     {
-      "id": "fff9",
-      "name": "anas",
-      "email": "ktmnas2020@gmail.com",
-      "status": "active",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "cart": [],
-      "order": []
-    },
-    {
-      "id": "349e",
-      "name": "anas",
-      "email": "anas@gmail.com",
-      "status": "active",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "cart": [
-        {
-          "id": "3",
-          "name": "clothes",
-          "description": "Colorful Birdies on Orange Bandana",
-          "price": "4.75",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-10.jpg",
-          "quantity": 8
-        },
-        {
-          "id": "4",
-          "name": "nutrition",
-          "description": "Nutrikids Food Nutrition DHA+ Orange",
-          "price": "6.50",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-9.jpg",
-          "quantity": 1
-        }
-      ],
-      "order": []
-    },
-    {
-      "id": "9212",
-      "name": "anas",
-      "email": "ktanas@gmail.com",
-      "status": "active",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "cart": [
-        {
-          "id": "2",
-          "name": "clothes",
-          "description": "Twin Cute Bunny Set Combo",
-          "price": "40.25",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-11.jpg",
-          "quantity": 3
-        }
-      ],
-      "order": []
-    },
-    {
-      "id": "3a68",
-      "name": "anas",
-      "email": "kt@gmail.com",
-      "status": "active",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "cart": [
-        {
-          "id": "1",
-          "name": "toys",
-          "description": "Extra Soft Touch Lamb Doll",
-          "price": "8.50",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg",
-          "quantity": 2
-        }
-      ],
-      "order": []
-    },
-    {
-      "id": "ebce",
-      "name": "ty",
-      "email": "mu@gmail.com",
-      "status": "active",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "cart": [],
-      "order": []
-    },
-    {
-      "id": "203e",
-      "name": "anas",
-      "email": "anaskt@gmail.com",
-      "status": "active",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "cart": [],
-      "order": []
-    },
-    {
-      "id": "6ef1",
-      "name": "anas",
-      "email": "ktm@gmail.com",
-      "status": "active",
-      "password": "test1234",
-      "confirmPassword": "test1234",
-      "cart": []
-    },
-    {
-      "id": "9a96",
-      "name": "tr",
-      "email": "tr@gmail.com",
-      "status": "active",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "cart": [
-        {
-          "id": "7",
-          "name": "nutrition",
-          "description": "VitCom Nutrition Fruits Flavor",
-          "price": "9.50",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-6.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "8",
-          "name": "nursery",
-          "description": "Frosted White Plastic Bottle 500ml",
-          "price": "6.25",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-5.jpg",
-          "quantity": 1
-        }
-      ]
-    },
-    {
       "id": "14d1",
       "name": "vavy",
       "email": "vavy@gmail.com",
+      "status": "active",
       "password": "12345678",
       "confirmPassword": "12345678",
+      "order": [],
       "cart": [
         {
           "id": "2",
@@ -152,8 +24,45 @@
           "price": "35.50",
           "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg",
           "quantity": 1
+        },
+        {
+          "id": "b79e",
+          "name": "toys",
+          "description": "Teddy Bear Ready To Flight Doll",
+          "price": "10.00",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-7.jpg",
+          "quantity": 1
         }
       ]
+    },
+    {
+      "id": "def8",
+      "name": "anas",
+      "email": "anas@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "status": "active",
+      "cart": [],
+      "order": []
+    },
+    {
+      "id": "df43",
+      "name": "muhe",
+      "email": "muhe@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "status": "active",
+      "cart": [
+        {
+          "id": "5",
+          "name": "clothes",
+          "description": "Sunny Outdoor Picnic Set Yellow",
+          "price": "35.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg",
+          "quantity": 1
+        }
+      ],
+      "order": []
     }
   ],
   "products": [
