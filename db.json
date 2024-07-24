@@ -8,6 +8,15 @@
       "password": "12345678",
       "confirmPassword": "12345678",
       "order": [],
+      "cart": []
+    },
+    {
+      "id": "def8",
+      "name": "anas",
+      "email": "anas@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "status": "active",
       "cart": [
         {
           "id": "2",
@@ -26,23 +35,62 @@
           "quantity": 1
         },
         {
-          "id": "b79e",
+          "id": "7",
+          "name": "nutrition",
+          "description": "VitCom Nutrition Fruits Flavor",
+          "price": "9.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-6.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "4257",
           "name": "toys",
-          "description": "Teddy Bear Ready To Flight Doll",
-          "price": "10.00",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-7.jpg",
+          "description": "Octopus Pod - Toy Storage Box",
+          "price": "450",
+          "image": "https://www.shumee.in/cdn/shop/products/Octopus_bin_600x_b31544fe-dd86-483c-bc09-4f40e87d796f.jpg?v=1556875948&width=600",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "name": "toys",
+          "description": "ZooMate 3 Animal Set Toys",
+          "price": "12.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-4.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "8",
+          "name": "nursery",
+          "description": "Frosted White Plastic Bottle 500ml",
+          "price": "6.25",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-5.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "88d3",
+          "name": "toys",
+          "description": "Extra Soft Touch Lamb Doll",
+          "price": "8.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3895",
+          "name": "clothes",
+          "description": "Cute Brown Sheep Sleeveless",
+          "price": "30.50 ",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-3.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "fe1d",
+          "name": "clothes",
+          "description": "Long Sleeve Sweater Navy Blue",
+          "price": "36.25",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-2.jpg",
           "quantity": 1
         }
-      ]
-    },
-    {
-      "id": "def8",
-      "name": "anas",
-      "email": "anas@gmail.com",
-      "password": "12345678",
-      "confirmPassword": "12345678",
-      "status": "active",
-      "cart": [],
+      ],
       "order": []
     },
     {
@@ -59,6 +107,105 @@
           "description": "Sunny Outdoor Picnic Set Yellow",
           "price": "35.50",
           "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg",
+          "quantity": 1
+        }
+      ],
+      "order": []
+    },
+    {
+      "id": "f4e3",
+      "name": "annu",
+      "email": "annu@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678",
+      "status": "active",
+      "cart": [
+        {
+          "id": "2",
+          "name": "clothes",
+          "description": "Twin Cute Bunny Set Combo",
+          "price": "67",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-11.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "name": "clothes",
+          "description": "Sunny Outdoor Picnic Set Yellow",
+          "price": "35.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "7",
+          "name": "nutrition",
+          "description": "VitCom Nutrition Fruits Flavor",
+          "price": "9.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-6.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "4257",
+          "name": "toys",
+          "description": "Octopus Pod - Toy Storage Box",
+          "price": "450",
+          "image": "https://www.shumee.in/cdn/shop/products/Octopus_bin_600x_b31544fe-dd86-483c-bc09-4f40e87d796f.jpg?v=1556875948&width=600",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "name": "toys",
+          "description": "ZooMate 3 Animal Set Toys",
+          "price": "12.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-4.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "8",
+          "name": "nursery",
+          "description": "Frosted White Plastic Bottle 500ml",
+          "price": "6.25",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-5.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "88d3",
+          "name": "toys",
+          "description": "Extra Soft Touch Lamb Doll",
+          "price": "8.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3895",
+          "name": "clothes",
+          "description": "Cute Brown Sheep Sleeveless",
+          "price": "30.50 ",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-3.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "fe1d",
+          "name": "clothes",
+          "description": "Long Sleeve Sweater Navy Blue",
+          "price": "36.25",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-2.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "b79e",
+          "name": "toys",
+          "description": "Teddy Bear Ready To Flight Doll",
+          "price": "10.00",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-7.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "00a4",
+          "name": "clothes",
+          "description": "White Comfort Maxx",
+          "price": "28.00",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-1.jpg",
           "quantity": 1
         }
       ],
