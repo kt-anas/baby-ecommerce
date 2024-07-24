@@ -11,14 +11,28 @@ export default function UserDetail() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    /**
+     * Asynchronously fetches a user from the server and updates the state accordingly.
+     * Sets loading state to true before fetching, and false after fetching.
+     * If an error occurs during fetching, sets an error message and logs the error.
+     *
+     * @returns {Promise<void>}
+     */
     const fetchUser = async () => {
       try {
+        // Fetch user data from the server
+        // The API endpoint is constructed using the userId parameter from the URL
         const response = await axios.get(`http://localhost:3000/users/${userId}`);
+        
+        // Update the state with the fetched user data
         setUser(response.data);
       } catch (error) {
+        // Set error message and log the error
+        // The error message is meant to be displayed to the user
         setError('Error fetching user details');
         console.error('Error fetching user details:', error);
       } finally {
+        // Set loading state to false, indicating that the data is fetched and the UI can be updated
         setLoading(false);
       }
     };

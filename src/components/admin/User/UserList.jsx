@@ -13,15 +13,29 @@ export default function UserList() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        /**
+         * Fetches all users from the API and updates the state with the fetched data.
+         * Sets loading state to true before fetching, and false after fetching.
+         * If an error occurs during fetching, sets an error message and logs the error.
+         *
+         * @returns {Promise<void>}
+         */
         const fetchAllUsers = async () => {
+            // Set loading state to true
             setLoading(true);
+
             try {
+                // Fetch users from the API
                 const res = await axios.get('http://localhost:3000/users');
+
+                // Update the state with the fetched data
                 setAllUsers(res.data);
             } catch (error) {
+                // Set error message and log the error
                 setError('Error fetching users');
                 console.error('Error fetching users:', error);
             } finally {
+                // Set loading state to false, indicating that the data is fetched and the UI can be updated
                 setLoading(false);
             }
         };
@@ -36,11 +50,28 @@ export default function UserList() {
     const currentUsers = filteredUsers.slice((page - 1) * limit, page * limit);
     const totalPages = Math.ceil(filteredUsers.length / limit);
 
+    /**
+     * Navigates to the next page of users.
+     * @param {number} prevPage - The current page number.
+     * @returns {number} - The new page number.
+     */
     const nextPage = () => {
         setPage((prevPage) => Math.min(prevPage + 1, totalPages));
+        /**
+         * This is a comment explaining what the code does.
+         * It sets the new page number to the minimum of the previous page number + 1 and the total number of pages.
+         * This ensures we don't navigate to a page number greater than the total number of pages.
+         */
     };
 
+    /**
+     * Navigates to the previous page of users.
+     * @param {number} prevPage - The current page number.
+     * @returns {number} - The new page number.
+     */
     const previousPage = () => {
+        // Set the new page number to the maximum of the previous page number - 1 and 1.
+        // This ensures we don't navigate to a page number less than 1.
         setPage((prevPage) => Math.max(prevPage - 1, 1));
     };
 

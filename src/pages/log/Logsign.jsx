@@ -16,43 +16,48 @@ const Logsign = () => {
   
   const {setIsLogged,isLogged} = useContext(CartContext);
 
-  const onSubmit = (values, { setSubmitting }) => {
-    let adminData=false
+const onSubmit = (values, { setSubmitting }) => {
+    // Initialize adminData to false
+    let adminData=false;
+
+    // Make a GET request to fetch user data
     axios.get('http://localhost:3000/users')
       .then((res) => {
         
-        // const adminData=res.data.find(item => item.email === 'admin@gmail.com' && item.password === 'boss');
-
+        // Check if the provided email and password match the admin credentials
         if(values.email===`admin@gmail.com` && values.password===`boss`){
             adminData=true;
         }
+
+        // Find user data based on the input email and password
         const findeData = res.data.find(item => item.email === values.email && item.password === values.password);
         const exitData = res.data.find(item => item.email === values.email && item.password !== values.password);
         
-
+        // Handle different scenarios based on the obtained data
         if(adminData){
-            
-        toast.success('welcome admin');
-        localStorage.setItem('id', values.email);
-        setIsLogged(true);
-         setTimeout(() => navigate("/admin"), 1000);
-        }
-
-        else if(findeData) {
+          // Display success message for admin
+          toast.success('welcome admin');
+          localStorage.setItem('id', values.email);
+          setIsLogged(true);
+          setTimeout(() => navigate("/admin"), 1000);
+        } else if(findeData) {
             if(findeData.status === 'active') {
+          // Display success message for regular user
           toast.success('Login successful');
           localStorage.setItem('id', findeData.id);
           localStorage.setItem('user', JSON.stringify(findeData));
           setIsLogged(true);
           setTimeout(() => navigate("/"), 1000);
              } else{
+               // Display error message for blocked user
                toast.error('User blocked');
              }
-         
         } else if (exitData) {
-          toast.error('Enter your password correctly')
+          // Display error message for incorrect password
+          toast.error('Enter your password correctly');
         } else {
-          toast(`OOPS! You don\'t have an account`, {
+          // Display message for user without an account
+          toast(`OOPS! You don't have an account`, {
             icon: '😬',
           });
           setTimeout(() => navigate("/register"), 1000);
@@ -67,18 +72,30 @@ const Logsign = () => {
 
 
 
-  const validate = (values) => {
-    let errors = {}
-    if (!values.email) {
-      errors.email = 'Required'
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      errors.email = 'Invalid email format'
-    }
-    if (!values.password) {
-      errors.password = 'Required'
-    }
-    return errors
+/**
+ * Validates the form values for the login form.
+ *
+ * @param {object} values - The form values.
+ * @returns {object} The validation errors.
+ */
+const validate = (values) => {
+  let errors = {}
+
+  // Check if email is required
+  if (!values.email) {
+    errors.email = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    // Check if email is in a valid format
+    errors.email = 'Invalid email format'
   }
+
+  // Check if password is required
+  if (!values.password) {
+    errors.password = 'Required'
+  }
+
+  return errors
+}
 
 
 
