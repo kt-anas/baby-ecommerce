@@ -1,6 +1,11 @@
 import React from 'react';
 import Nav from '../../components/nav/Nav';
 
+/**
+ * The contact page component.
+ * 
+ * @returns {JSX.Element} - The contact page component.
+ */
 const Contactus = () => {
   return (
     <div>
@@ -17,6 +22,8 @@ const Contactus = () => {
                   type="text"
                   placeholder=" Name"
                   className="block w-full px-4 py-2 border bg-white  rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500  "
+                  // The name field is required.
+                  required
                 />
               </div>
               <div>
@@ -26,6 +33,8 @@ const Contactus = () => {
                   type="email"
                   placeholder="Email"
                   className="block w-full px-4 py-2 border bg-white border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  // The email field is required.
+                  required
                 />
               </div>
               <div>
@@ -35,6 +44,8 @@ const Contactus = () => {
                   type="text"
                   placeholder="Subject"
                   className="block w-full px-4 py-2 border bg-white border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 "
+                  // The subject field is required.
+                  required
                 />
               </div>
               <div>
@@ -44,6 +55,8 @@ const Contactus = () => {
                   placeholder="Message"
                   rows="4"
                   className="block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  // The message field is required.
+                  required
                 ></textarea>
               </div>
               <div className="flex justify-center">
@@ -61,5 +74,6 @@ const Contactus = () => {
     </div>
   );
 };
+
 
 export default Contactus;

@@ -10,6 +10,7 @@ import { Outlet } from 'react-router-dom';
  *
  * @returns {JSX.Element} The admin component
  */
+
 export default function Admin() {
   return (
     // Main container
