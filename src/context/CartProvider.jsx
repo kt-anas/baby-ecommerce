@@ -71,6 +71,7 @@ export default function CartProvider({ children }) {
    * @return {void}
    */
   const addCart = (product) => {
+    
     // Check if the user is logged in
     if(!isLogged) {
       // Show error message if the user is not logged in

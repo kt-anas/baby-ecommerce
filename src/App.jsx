@@ -24,8 +24,8 @@ import ProductDetail from './components/admin/Products/ProductDetail.jsx'
 import ProductEdit from './components/admin/Products/ProductEdit.jsx'
 import { Toaster } from 'react-hot-toast';
 import Nursery from './components/shop/Nursery.jsx'
- import Toys from './components/shop/Toys.jsx'
- import Nutrition from './components/shop/Nutrition.jsx'
+import Toys from './components/shop/Toys.jsx'
+import Nutrition from './components/shop/Nutrition.jsx'
  
   // Import the Tailwind CSS file
  
@@ -52,12 +52,14 @@ function App() {
         {/* <Route path='/admin' element={<Admin/>}/> */}
         <Route path='/profile' element={<Profile/>}/>
         <Route path="/register" element={<Sign />} />
+
         <Route path='/admin' element={<Admin/>}>
             <Route index element={<UserList />} />
             <Route  path="user"  element={<UserList/>}/>
             <Route path="product" element={<ProductList/>}/>
             <Route path="revenue" element={<Revenue/>}/>
-        </Route>    
+        </Route>  
+          
         <Route path='/admin/products/add' element={<ProductAdd/>}/>
         <Route path='/admin/products/:productId' element={<ProductDetail/>}/>
         <Route path='/admin/products/edit/:productId' element={<ProductEdit/>}/>

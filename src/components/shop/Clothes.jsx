@@ -2,6 +2,7 @@
 import React, { useEffect,useState } from 'react'
 import { Toaster } from 'react-hot-toast';
 import axios  from 'axios';
+import Nav from '../nav/Nav';
 import { useNavigate } from 'react-router-dom';
 export default function Clothes() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ export default function Clothes() {
       };
   return (
     <>
+    <Nav/>
       <div className="container mx-auto min-h-screen p-10">
       <h1 className="text-6xl font-bold text-left mb-10 pt-10 pl-10">Clothes</h1>
      {/* <div className=' flex gap-3 align-middle ml-10'>

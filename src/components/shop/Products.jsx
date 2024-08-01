@@ -4,12 +4,17 @@ import { CartContext } from '../../context/CartProvider';
 import './Products.css';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from './cartSlice';
+
+
 const ProductsProvider = () => {
   const [products, setProducts] = useState([]);
   const { addCart,SearchProduct } = useContext(CartContext);
   const  [filter,setFilter] =useState('All');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -43,7 +48,7 @@ const ProductsProvider = () => {
 
   const displayProducts =   SearchProduct;
 
- console.log(filteredProducts)
+ 
   return (
     <div className="container mx-auto min-h-screen p-10">
       <h1 className="text-6xl font-bold text-left mb-20 pt-20 pl-10">Shop</h1>
@@ -112,6 +117,8 @@ const ProductsProvider = () => {
               >
                 ADD TO CART
               </button>
+
+              <button onClick={()=>dispatch(addItem(product))}>Add</button>
             </div>
           </div>
       ))}
