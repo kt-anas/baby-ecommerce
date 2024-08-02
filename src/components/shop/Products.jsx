@@ -5,8 +5,8 @@ import './Products.css';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addItem } from './cartSlice';
-
+import { addItem,setCart } from './cartSlice';
+import { useSelector } from 'react-redux';
 
 const ProductsProvider = () => {
   const [products, setProducts] = useState([]);
@@ -15,6 +15,8 @@ const ProductsProvider = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -118,7 +120,7 @@ const ProductsProvider = () => {
                 ADD TO CART
               </button>
 
-              <button onClick={()=>dispatch(addItem(product))}>Add</button>
+              <button onClick={()=>dispatch(addItem(product),dispatch(setCart(cartItems)))}>Add</button>
             </div>
           </div>
       ))}
