@@ -6,17 +6,14 @@
  const id = localStorage.getItem("id");
 
 
- export const setCart = createAsyncThunk(
-    'cart/setCart',
-    async (cartItems, { rejectWithValue }) => {
-      try {
-        const response = await axios.patch(`http://localhost:3000/users/${id}`, { cart: cartItems });
-        return response.data;
-      } catch (error) {
-        return rejectWithValue(error.response.data);
-      }
-    }
-  );
+export const setCart = createAsyncThunk(
+  'cart/setCart',
+  ( cartItems, { rejectWithValue }) => {
+    return axios.patch(`http://localhost:3000/users/${id}`, { cart: cartItems })
+      .then((response) => response.data.cart)
+      .catch((error) => rejectWithValue(error.response.data));
+  }
+);
   
 
 
@@ -47,7 +44,7 @@
           })
           .addCase(setCart.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.updatatedCart = action.payload.cart
+            state.updatatedCart = action.payload
             console.log(state.updatatedCart);
             
             // Optionally update state with server response if needed

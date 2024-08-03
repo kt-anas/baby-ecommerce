@@ -19,28 +19,20 @@
       "status": "active",
       "cart": [
         {
-          "id": "9",
-          "name": "toys",
-          "description": "ZooMate 3 Animal Set Toys",
-          "price": "12.50",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-4.jpg",
-          "quantity": 2
-        },
-        {
-          "id": "2",
-          "name": "clothes",
-          "description": "Twin Cute Bunny Set Combo",
-          "price": "67",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-11.jpg",
-          "quantity": 7
-        },
-        {
           "id": "5",
           "name": "clothes",
           "description": "Sunny Outdoor Picnic Set Yellow",
           "price": "35.50",
           "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg",
-          "quantity": 1
+          "quantity": 11
+        },
+        {
+          "id": "88d3",
+          "name": "toys",
+          "description": "Extra Soft Touch Lamb Doll",
+          "price": "8.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-12.jpg",
+          "quantity": 4
         }
       ],
       "order": []
