@@ -15,7 +15,14 @@ export const setCart = createAsyncThunk(
   }
 );
   
-
+export const getCart = createAsyncThunk(
+  'cart/getCart',
+  ( cartItems,{ rejectWithValue }) => {
+    return axios.get(`http://localhost:3000/users/${id}`)
+      .then((response) => response.data.cart)
+      .catch((error) => rejectWithValue(error.response.data));
+  }
+);
 
  export const cartSlice = createSlice({
    name: 'cart',
@@ -44,9 +51,6 @@ export const setCart = createAsyncThunk(
           })
           .addCase(setCart.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.updatatedCart = action.payload
-            console.log(state.updatatedCart);
-            
             // Optionally update state with server response if needed
           })
           .addCase(setCart.rejected, (state, action) => {
@@ -55,6 +59,24 @@ export const setCart = createAsyncThunk(
           });
      
    },
+
+   extraReducers: (builder) => {
+    builder
+      .addCase(getCart.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(getCart.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.updatatedCart = action.payload;
+        console.log(state.updatatedCart);
+        // Optionally update state with server response if needed
+      })
+      .addCase(getCart.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+      });
+ }
+
  });
  
  export const { addItem } = cartSlice.actions;

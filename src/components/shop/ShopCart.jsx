@@ -8,7 +8,7 @@ const ShopCart = () => {
   const navigate = useNavigate();
   const { cart, removeFromCart, handleDecrement, handleIncrement, clearCart, totalPrice } = useContext(CartContext);
 
-  const updatatedCart = useSelector(state => state.cart.updatatedCart)
+ 
 
   return (
     <>
@@ -16,12 +16,12 @@ const ShopCart = () => {
       <div className="flex items-center justify-center min-h-screen bg-gray-100 pt-4">
         <div className="w-full max-w-4xl p-4 md:p-12 bg-white rounded-3xl border-2 border-gray-200 ">
           <h6 className="text-4xl md:text-3xl font-bold mb-5 text-center">Cart</h6>
-          {updatatedCart.length === 0 ? (
+          {cart.length === 0 ? (
             <div className="text-4xl md:text-2xl text-center">YOUR CART IS EMPTY.</div>
           ) : (
             <>
               <div className="space-y-6">
-                {updatatedCart.map((item) => (
+                {cart.map((item) => (
                   <div key={item.id} className="flex flex-col md:flex-row items-center justify-between p-4 bg-white rounded-lg  border border-gray-200">
                     <img src={item.image} className="w-24 h-24 object-cover rounded-lg mb-4 mr-4 md:mb-0" alt={item.description} />
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full justify-between">

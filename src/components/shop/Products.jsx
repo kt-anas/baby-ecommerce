@@ -5,7 +5,7 @@ import './Products.css';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addItem,setCart } from './cartSlice';
+import { addItem,setCart,getCart } from './cartSlice';
 import { useSelector } from 'react-redux';
 
 
@@ -101,7 +101,7 @@ const ProductsProvider = () => {
                 ADD TO CART
               </button>
 
-              <button onClick={()=>dispatch(addItem(product),dispatch(setCart(cartItems)))}>Add</button>
+              <button onClick={()=>dispatch(addItem(product),dispatch(setCart(cartItems)),dispatch(getCart(cartItems)))}>Add</button>
             </div>
           </div>
       ))}
