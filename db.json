@@ -19,20 +19,12 @@
       "status": "active",
       "cart": [
         {
-          "id": "7",
-          "name": "nutrition",
-          "description": "VitCom Nutrition Fruits Flavor",
-          "price": "9.50",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-6.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "8",
-          "name": "nursery",
-          "description": "Frosted White Plastic Bottle 500ml",
-          "price": "6.25",
-          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-5.jpg",
-          "quantity": 1
+          "id": "9",
+          "name": "toys",
+          "description": "ZooMate 3 Animal Set Toys",
+          "price": "12.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-4.jpg",
+          "quantity": 2
         },
         {
           "id": "2",
@@ -40,6 +32,14 @@
           "description": "Twin Cute Bunny Set Combo",
           "price": "67",
           "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-11.jpg",
+          "quantity": 7
+        },
+        {
+          "id": "5",
+          "name": "clothes",
+          "description": "Sunny Outdoor Picnic Set Yellow",
+          "price": "35.50",
+          "image": "https://websitedemos.net/baby-store-04/wp-content/uploads/sites/750/2020/12/baby-store-product-img-8.jpg",
           "quantity": 1
         }
       ],

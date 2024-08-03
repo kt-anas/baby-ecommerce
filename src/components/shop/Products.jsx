@@ -8,10 +8,11 @@ import { useDispatch } from 'react-redux';
 import { addItem,setCart } from './cartSlice';
 import { useSelector } from 'react-redux';
 
+
 const ProductsProvider = () => {
   const [products, setProducts] = useState([]);
   const { addCart,SearchProduct } = useContext(CartContext);
-  const  [filter,setFilter] =useState('All');
+   
   const [filteredProducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -32,25 +33,9 @@ const ProductsProvider = () => {
   }, []);
 
   
-  useEffect(() => {
-    if (filter === 'All') {
-      setFilteredProducts(products);
-    } else {
-      setFilteredProducts(products.filter(item => item.name ?.toLowerCase().includes(filter.toLowerCase())));
-    }
-  }, [filter, products]);
-
-
-  const handleFilterChange = (category) => {
-    setFilter(category);
-  };
-  
-//   const displayProducts = filteredProducts && filteredProducts.length > 0 ? filteredProducts : SearchProduct;
-//   const displaysearchProducts = SearchProduct && SearchProduct.length > 0 ? SearchProduct : filteredProducts;
-
-  const displayProducts =   SearchProduct;
-
  
+  
+    
   return (
     <div className="container mx-auto min-h-screen p-10">
       <h1 className="text-6xl font-bold text-left mb-20 pt-20 pl-10">Shop</h1>
@@ -81,11 +66,7 @@ const ProductsProvider = () => {
      <button className='tooltiptext'onClick={()=> navigate('/nutrition')}>Nutrition</button>
      <button className='tooltiptext'onClick={()=> navigate('/toys')}>Toys</button>
      </div>
-     {/* <div class="tooltiptext">Clothes</div> */}
-     {/* <button className='tooltiptext'>btn</button>
-     <div class="tooltiptext">Nursery</div>
-     <div class="tooltiptext">Nutrition</div>
-     <div class="tooltiptext">Toys</div> */}
+     
      </div>
 
 
@@ -96,7 +77,7 @@ const ProductsProvider = () => {
        
       
 
-        {displayProducts.map((product) => (
+        { SearchProduct.map((product) => (
             <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
             <img className="w-full" src={product.image} alt={product.name} />
             <div className="px-4 py-4">
@@ -124,100 +105,6 @@ const ProductsProvider = () => {
             </div>
           </div>
       ))}
-    
-       
-      
-      
-{/* 
-      { (filteredProducts) ?(
-            <>
-            {filteredProducts.map((product) => (
-             <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
-               <img className="w-full" src={product.image} alt={product.name} />
-               <div className="px-4 py-4">
-    
-                 <p className="text-gray-700 text-base">{product.description}</p>
-                 <span  className="text-yellow-500 text-2xl" >&#9733;</span>
-                 <span className="text-yellow-500 text-2xl">&#9733;</span>
-                 <span className="text-yellow-500 text-2xl">&#9733;</span>
-                 <span className="text-yellow-500 text-2xl">&#9733;</span>
-                 <span className="text-yellow-500 text-2xl">&#9733;</span>
-               </div>
-               <div className="flex justify-between items-center px-4 py-2">
-                 <span className="text-xl font-bold text-gray-900">${product.price}</span>
-       
-       
-              
-                 <button
-                   className=" hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
-                   onClick={() => addCart(product)}
-                 >
-                   ADD TO CART
-                 </button>
-               </div>
-             </div>
-           ))}
-           </>
-      ):(SearchProduct) ? (
-         <>
-         {SearchProduct.map((product) => (
-          <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
-            <img className="w-full" src={product.image} alt={product.name} />
-            <div className="px-4 py-4">
- 
-              <p className="text-gray-700 text-base">{product.description}</p>
-              <span  className="text-yellow-500 text-2xl" >&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-            </div>
-            <div className="flex justify-between items-center px-4 py-2">
-              <span className="text-xl font-bold text-gray-900">${product.price}</span>
-    
-    
-           
-              <button
-                className=" hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
-                onClick={() => addCart(product)}
-              >
-                ADD TO CART
-              </button>
-            </div>
-          </div>
-        ))}
-        </>
-      ):(
-        <>
-         {products.map((product) => (
-          <div key={product.id} className="w-full max-w-xs mx-auto rounded overflow-hidden bg-transparent">
-            <img className="w-full" src={product.image} alt={product.name} />
-            <div className="px-4 py-4">
- 
-              <p className="text-gray-700 text-base">{product.description}</p>
-              <span  className="text-yellow-500 text-2xl" >&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-              <span className="text-yellow-500 text-2xl">&#9733;</span>
-            </div>
-            <div className="flex justify-between items-center px-4 py-2">
-              <span className="text-xl font-bold text-gray-900">${product.price}</span>
-    
-    
-           
-              <button
-                className=" hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
-                onClick={() => addCart(product)}
-              >
-                ADD TO CART
-              </button>
-            </div>
-          </div>
-        ))}
-        </>
-      )}
-         */}
            <Toaster />
       </div>
     </div>

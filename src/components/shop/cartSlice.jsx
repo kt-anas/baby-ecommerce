@@ -1,8 +1,10 @@
    
  import { createSlice,createAsyncThunk } from '@reduxjs/toolkit';
- import axios from 'axios';
 
+ import axios from 'axios';
+ 
  const id = localStorage.getItem("id");
+
 
  export const setCart = createAsyncThunk(
     'cart/setCart',
@@ -22,8 +24,7 @@
    name: 'cart',
    initialState: {
      cartItems: [],
-     status: 'idle',
-    error: null,
+     updatatedCart: [],
    },
    reducers: {
      addItem: (state, action) => {
@@ -36,7 +37,9 @@
         }
      },
     },
-    
+
+
+
      extraReducers: (builder) => {
         builder
           .addCase(setCart.pending, (state) => {
@@ -44,6 +47,9 @@
           })
           .addCase(setCart.fulfilled, (state, action) => {
             state.status = 'succeeded';
+            state.updatatedCart = action.payload.cart
+            console.log(state.updatatedCart);
+            
             // Optionally update state with server response if needed
           })
           .addCase(setCart.rejected, (state, action) => {
