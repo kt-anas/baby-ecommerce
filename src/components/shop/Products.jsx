@@ -15,9 +15,10 @@ const ProductsProvider = () => {
    
   const [filteredProducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const cartItems = useSelector((state) => state.cart.cartItems);
+//   const dispatch = useDispatch();
+
+//   const cartItems = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -101,7 +102,8 @@ const ProductsProvider = () => {
                 ADD TO CART
               </button>
 
-              <button onClick={()=>dispatch(addItem(product),dispatch(setCart(cartItems)),dispatch(getCart(cartItems)))}>Add</button>
+              {/* <button onClick={()=>dispatch(addItem(product),dispatch(setCart(cartItems)),dispatch(getCart(cartItems)))}>Add</button> */}
+          
             </div>
           </div>
       ))}

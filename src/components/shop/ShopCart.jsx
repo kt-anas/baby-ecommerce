@@ -3,7 +3,7 @@ import { CartContext } from '../../context/CartProvider';
 import Nav from '../nav/Nav';
 import { useNavigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { useSelector } from 'react-redux';
+ 
 const ShopCart = () => {
   const navigate = useNavigate();
   const { cart, removeFromCart, handleDecrement, handleIncrement, clearCart, totalPrice } = useContext(CartContext);
