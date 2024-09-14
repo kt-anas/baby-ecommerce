@@ -16,6 +16,16 @@ const Logsign = () => {
   
   const {setIsLogged,isLogged} = useContext(CartContext);
 
+    /**
+     * Handles the login form submission and the different scenarios based on the input data.
+     * If the user is an admin, it navigates to the admin page.
+     * If the user is a regular user, it navigates to the user's page.
+     * If the user is blocked, it displays an error message.
+     * If the user does not exist, it displays a message and navigates to the registration page.
+     * @param {Object} values - The form values.
+     * @param {Object} options - The form options.
+     * @param {Function} options.setSubmitting - The function to set form submitting status.
+     */
 const onSubmit = (values, { setSubmitting }) => {
     // Initialize adminData to false
     let adminData=false;
