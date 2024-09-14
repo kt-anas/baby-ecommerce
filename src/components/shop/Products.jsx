@@ -2,11 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { CartContext } from '../../context/CartProvider';
 import './Products.css';
-import { Toaster, toast } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addItem,setCart,getCart } from './cartSlice';
-import { useSelector } from 'react-redux';
+ 
 
 
 const ProductsProvider = () => {
@@ -16,9 +14,7 @@ const ProductsProvider = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
 
-//   const dispatch = useDispatch();
-
-//   const cartItems = useSelector((state) => state.cart.cartItems);
+ 
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -40,17 +36,7 @@ const ProductsProvider = () => {
   return (
     <div className="container mx-auto min-h-screen p-10">
       <h1 className="text-6xl font-bold text-left mb-20 pt-20 pl-10">Shop</h1>
-     {/* <div className=' flex gap-3 align-middle ml-10'>
-     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7 filter">
-     <path d="M18.75 12.75h1.5a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM12 6a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 6ZM12 18a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 18ZM3.75 6.75h1.5a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM5.25 18.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5ZM3 12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 12ZM9 3.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM12.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM9 15.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
-     </svg> 
-     <div className='text'>Toys</div>
-     <div className='text'>Toys</div>
-     <div className='text'>Toys</div>
-     <h6>
-      Filter
-      </h6>
-     </div> */}
+     
      <div className="filter">
         <div className=' ml-10 flex gap-3'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7 ">
@@ -102,7 +88,7 @@ const ProductsProvider = () => {
                 ADD TO CART
               </button>
 
-              {/* <button onClick={()=>dispatch(addItem(product),dispatch(setCart(cartItems)),dispatch(getCart(cartItems)))}>Add</button> */}
+              
           
             </div>
           </div>
